@@ -75,6 +75,10 @@ public:
 		DEVFUNC_WRITE_BLOCK romWrite;
 		DEVFUNC_WRITE_MEMSIZE romSizeB;
 		DEVFUNC_WRITE_BLOCK romWriteB;
+		DEVFUNC_WRITE_A8D32 writeD32;	// write 32-bit data to 8-bit register/offset (ES5506)
+		DEVFUNC_WRITE_A16D8 writeExt;	// ES5506 extension commands (0xD7)
+		DEVFUNC_WRITE_A16D8 writeEsp;	// ES5510 commands via the ES5506 device (0xD8)
+		DEVFUNC_WRITE_A16D16 writeGain;	// ES5506 output gain (0xE3)
 		DEVLOG_CB_DATA logCbData;
 	};
 	struct DACSTRM_DEV
@@ -273,6 +277,9 @@ protected:
 	void Cmd_K007232_Reg(void);				// command 41 - K007232 register write (Ofs8_Data8 with minor fixes)
 	void Cmd_AY_Stereo(void);				// command 30 - set AY8910 stereo mask
 	void Cmd_BSMT2000_Reg(void);			// command C9 - BSMT2000 register write (16-bit data, 8-bit offset)
+	void Cmd_ES5506_Ext(void);				// command D7 - ES5506 extension (bank/window/alias/IRQ ack)
+	void Cmd_ES5510(void);					// command D8 - ES5510 (ESP) host write / halt / routing
+	void Cmd_ES5506_Gain(void);				// command E3 - ES5506 output gain
 	void Cmd_BSMT2000_Mode(void);			// command 32 - BSMT2000 mode change (8-bit data)
 
 	CPCONV* _cpcUTF16;	// UTF-16 LE -> UTF-8 codepage conversion

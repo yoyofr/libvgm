@@ -70,7 +70,7 @@
 	0x80, 0x100, 0x100, 0x100, 0x100, 0x100, 0x100, 0x98,
 	0x80, 0xE0, 0x100, 0xC0, 0x100, 0x40, 0x11E, 0x1C0,
 	0x100, 0xA0, 0x100, 0x100, 0x100, 0x100, 0x100, 0x100,
-	0x20, 0x100, 0x100, 0x100, 0x40, 0x20, 0x100, 0x40,
+	0x20, 0x100, 0x100, 0x100, 0x40, 0x100, 0x100, 0x40,
 	0x280, 0x100, 0x100, 0x100, 0x100, 0x100, 0x200, 0x40, 
 };
 /*static*/ const UINT16 VGMPlayer::_PB_VOL_AMNT[_CHIP_COUNT] =
@@ -78,7 +78,7 @@
 	0x100, 0x200, 0x200, 0x200, 0x200, 0x100, 0x100, 0x1AF,
 	0x200, 0x100, 0x200, 0x400, 0x200, 0x400, 0x100, 0x200,
 	0x200, 0x100, 0x100, 0x100, 0x180, 0x100, 0x100, 0x100,
-	0x800, 0x100, 0x100, 0x100, 0x800, 0x1000, 0x100, 0x800,
+	0x800, 0x100, 0x100, 0x100, 0x800, 0x200, 0x100, 0x800,
 	0x100, 0x200, 0x100, 0x100, 0x200, 0x100, 0x100, 0x400, 
 };
 
@@ -1384,7 +1384,8 @@ void VGMPlayer::GenerateDeviceConfig(void)
 				SaveDeviceConfig(sdCfg.cfgData, &devCfg, sizeof(DEV_GEN_CFG));
 				break;
 			case DEVID_ES5506:
-				devCfg.flags = _hdrBuffer[0xD5];	// output channels
+				// bits 0-3: output channel pairs, bit 7: ES5505 (0) / ES5506 (1)
+				devCfg.flags = (_hdrBuffer[0xD5] & 0x0F) | ((hdrClock & 0x80000000) >> 24);
 				SaveDeviceConfig(sdCfg.cfgData, &devCfg, sizeof(DEV_GEN_CFG));
 				break;
 			case DEVID_SCSP:
@@ -1605,6 +1606,11 @@ void VGMPlayer::InitDevices(void)
 				break;
 			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A8D8, 0, (void**)&chipDev.write8);
 			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A8D16, 0, (void**)&chipDev.writeD16);
+			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A8D32, 0, (void**)&chipDev.writeD32);
+			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A16D8, 0, (void**)&chipDev.writeExt);
+			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A16D8, 1, (void**)&chipDev.writeEsp);
+			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A16D16, 2, (void**)&chipDev.writeGain);
+			SndEmu_GetDeviceFunc(devInf->devDef, RWF_MEMORY | RWF_WRITE, DEVRW_MEMSIZE, 0, (void**)&chipDev.romSize);
 			SndEmu_GetDeviceFunc(devInf->devDef, RWF_MEMORY | RWF_WRITE, DEVRW_BLOCK, 0, (void**)&chipDev.romWrite);
 			break;
 		case DEVID_SCSP:

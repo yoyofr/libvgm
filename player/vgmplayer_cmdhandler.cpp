@@ -235,8 +235,8 @@
 	{0x1C, 0x04, &VGMPlayer::Cmd_Ofs16_Data8},          // D4 C140 register write
 	{0x24, 0x04, &VGMPlayer::Cmd_Port_Ofs8_Data8},      // D5 ES5503 register write
 	{0x25, 0x04, &VGMPlayer::Cmd_Ofs8_Data16},          // D6 ES5506 register write (16-bit data)
-	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // D7
-	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // D8
+	{0x25, 0x04, &VGMPlayer::Cmd_ES5506_Ext},           // D7 ES5506 extension (bank/window/alias/IRQ ack)
+	{0x25, 0x04, &VGMPlayer::Cmd_ES5510},               // D8 ES5510 (ESP) command
 	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // D9
 	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // DA
 	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // DB
@@ -247,7 +247,7 @@
 	{0xFF, 0x05, &VGMPlayer::Cmd_YM2612PCM_Seek},       // E0 set YM2612 PCM data offset
 	{0x27, 0x05, &VGMPlayer::Cmd_Ofs16_Data16},         // E1 C352 register write
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E2
-	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E3
+	{0x25, 0x05, &VGMPlayer::Cmd_ES5506_Gain},          // E3 ES5506 output gain
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E4
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E5
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E6
@@ -441,8 +441,8 @@
 	0xFF,	// D4
 	0xFF,	// D5
 	0xFF,	// D6
-	0xFF,	// D7
-	0xFF,	// D8
+	0x25,	// D7 ES5506
+	0x25,	// D8 ES5506/ES5510
 	0xFF,	// D9
 	0xFF,	// DA
 	0xFF,	// DB
@@ -454,7 +454,7 @@
 	0x20,	// E0 SCSP
 	0x24,	// E1 ES5503
 	0xFF,	// E2
-	0xFF,	// E3
+	0x25,	// E3 ES5506
 	0xFF,	// E4
 	0xFF,	// E5
 	0xFF,	// E6
@@ -504,6 +504,12 @@ INLINE UINT16 ReadBE16(const UINT8* data)
 #else
 	return (data[0x00] << 8) | (data[0x01] << 0);
 #endif
+}
+
+INLINE UINT32 ReadBE32(const UINT8* data)
+{
+	return	((UINT32)data[0x00] << 24) | ((UINT32)data[0x01] << 16) |
+			((UINT32)data[0x02] <<  8) | ((UINT32)data[0x03] <<  0);
 }
 
 INLINE UINT32 ReadLE24(const UINT8* data)
@@ -1092,6 +1098,45 @@ void VGMPlayer::Cmd_Ofs8_Data8(void)
 	return;
 }
 
+void VGMPlayer::Cmd_ES5506_Ext(void)
+{
+	// D7 pp aa dd: ES5506 extension command pp (bit 7 = chip ID)
+	UINT8 chipType = _CMD_INFO[fData[0x00]].chipType;
+	UINT8 chipID = (fData[0x01] & 0x80) >> 7;
+	CHIP_DEVICE* cDev = GetDevicePtr(chipType, chipID);
+	if (cDev == NULL || cDev->writeExt == NULL)
+		return;
+	
+	cDev->writeExt(cDev->base.defInf.dataPtr, ((fData[0x01] & 0x7F) << 8) | fData[0x02], fData[0x03]);
+	return;
+}
+
+void VGMPlayer::Cmd_ES5510(void)
+{
+	// D8 pp aa dd: ES5510 command pp (bit 7 = chip ID of the ES5506 the ESP is attached to)
+	UINT8 chipType = _CMD_INFO[fData[0x00]].chipType;
+	UINT8 chipID = (fData[0x01] & 0x80) >> 7;
+	CHIP_DEVICE* cDev = GetDevicePtr(chipType, chipID);
+	if (cDev == NULL || cDev->writeEsp == NULL)
+		return;
+	
+	cDev->writeEsp(cDev->base.defInf.dataPtr, ((fData[0x01] & 0x7F) << 8) | fData[0x02], fData[0x03]);
+	return;
+}
+
+void VGMPlayer::Cmd_ES5506_Gain(void)
+{
+	// E3 pp cc gggg: output gain of channel cc, 8.8 fixed point (big endian), pp bit 7 = chip ID
+	UINT8 chipType = _CMD_INFO[fData[0x00]].chipType;
+	UINT8 chipID = (fData[0x01] & 0x80) >> 7;
+	CHIP_DEVICE* cDev = GetDevicePtr(chipType, chipID);
+	if (cDev == NULL || cDev->writeGain == NULL)
+		return;
+	
+	cDev->writeGain(cDev->base.defInf.dataPtr, ((fData[0x01] & 0x7F) << 8) | fData[0x02], ReadBE16(&fData[0x03]));
+	return;
+}
+
 void VGMPlayer::Cmd_Ofs16_Data8(void)
 {
 	UINT8 chipType = _CMD_INFO[fData[0x00]].chipType;
@@ -1113,7 +1158,9 @@ void VGMPlayer::Cmd_Ofs8_Data16(void)
 	if (cDev == NULL || cDev->writeD16 == NULL)
 		return;
 	
-	UINT16 value = ReadLE16(&fData[0x02]);
+	// 0xD6 aa ddee: the 16-bit value is stored big endian (dd = byte lane aa|0, ee = byte lane aa|1),
+	// matching the MAME VGM logger and the C352 command.
+	UINT16 value = ReadBE16(&fData[0x02]);
 	cDev->writeD16(cDev->base.defInf.dataPtr, fData[0x01] & 0x7F, value);
 	return;
 }
