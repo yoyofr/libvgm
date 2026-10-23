@@ -5,7 +5,7 @@
 
 // ZOOM ZSG-2 wavetable synthesizer with the attached TMS57002 effects DSP (Taito Zoom sound board).
 //
-// VGM header: clock at offset 0x100 (VGM 1.73, header size 0x110). The DSP runs at clock / 2.
+// VGM header: clock at offset 0x100 (VGM 1.72, header size 0x110). The DSP runs at clock / 2.
 //
 // VGM command 0xE4 ss aa dddd (ss bit 7 = chip select, bits 0-3 = sub-command, dddd big endian):
 //   0x0..0x3  ZSG-2 register write, 16-bit word offset = ((ss & 3) << 8) | aa (0x000-0x3FF)
