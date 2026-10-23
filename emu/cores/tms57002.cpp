@@ -51,6 +51,8 @@ public:
 	void sync_w(int state);
 
 	void run(int cycles);
+	u32 state_save(u8* buf, u32 bufSize) const;
+	bool state_load(const u8* buf, u32 size);
 
 	u32 si[4], so[4];
 	u32 st0;
@@ -1147,6 +1149,10 @@ inline int tms57002::dbp(u32 st1)
 
 inline int tms57002::crm(u32 st1)
 {
+	// value overridden during cvar update (as in MAME; the queue is consumed within the pass that reads the coefficients)
+	if (update_counter_head != update_counter_tail)
+		return 0;
+
 	int crm = (st1 & ST1_CRM) >> ST1_CRM_SHIFT;
 	return crm <= 2 ? crm : 0;
 }
@@ -1262,6 +1268,100 @@ void tms57002::decode_cat3(u32 opcode, unsigned short *op, cstate *cs)
 #undef CINTRP
 
 /***************************************************************************
+    state image
+***************************************************************************/
+
+namespace {
+struct Writer
+{
+	u8* p; u32 size, pos;
+	Writer(u8* b, u32 s) : p(b), size(s), pos(0) {}
+	void u8w(u32 v) { if (p && pos < size) p[pos] = (u8)v; pos++; }
+	void u32w(u32 v) { u8w(v); u8w(v >> 8); u8w(v >> 16); u8w(v >> 24); }
+	void s64w(s64 v) { u32w((u32)(u64)v); u32w((u32)((u64)v >> 32)); }
+	void bytes(const u8* b, u32 n) { for (u32 i = 0; i < n; i++) u8w(b[i]); }
+};
+struct Reader
+{
+	const u8* p; u32 size, pos; bool ok;
+	Reader(const u8* b, u32 s) : p(b), size(s), pos(0), ok(true) {}
+	u32 u8r() { if (pos >= size) { ok = false; return 0; } return p[pos++]; }
+	u32 u32r() { u32 v = u8r(); v |= u8r() << 8; v |= u8r() << 16; v |= u8r() << 24; return v; }
+	s64 s64r() { u64 lo = u32r(); u64 hi = u32r(); return (s64)(lo | (hi << 32)); }
+};
+}
+
+u32 tms57002::state_save(u8* buf, u32 bufSize) const
+{
+	Writer w(buf, bufSize);
+	w.u32w(1);
+	w.u32w(st0); w.u32w(st1); w.u32w(sti); w.u32w(aacc); w.u32w(xoa); w.u32w(xba); w.u32w(xwr); w.u32w(xrd); w.u32w(txrd); w.u32w(creg);
+	w.s64w(macc); w.s64w(macc_read); w.s64w(macc_write);
+	w.u8w(pc); w.u8w(hpc); w.u8w(ca); w.u8w(id); w.u8w(ba0); w.u8w(ba1); w.u8w(rptc); w.u8w(rptc_next); w.u8w(sa); w.u8w(hidx);
+	w.u8w(allow_update); w.u8w(update_counter_head); w.u8w(update_counter_tail); w.u8w(0); w.u8w(0); w.u8w(0);
+	w.bytes(host, 4);
+	w.u32w(xm_adr);
+	for (int i = 0; i < 16; i++) w.u32w(update[i]);
+	w.bytes(update_addr, 16);
+	for (int i = 0; i < 4; i++) w.u32w(si[i]);
+	for (int i = 0; i < 4; i++) w.u32w(so[i]);
+	for (int i = 0; i < 256; i++) w.u32w(pgm[i]);
+	for (int i = 0; i < 256; i++) w.u32w(cmem[i]);
+	for (int i = 0; i < 256; i++) w.u32w(dmem0[i]);
+	for (int i = 0; i < 32; i++) w.u32w(dmem1[i]);
+	// external memory: spans of non-zero bytes (gaps of up to 64 zero bytes are kept inside a span)
+	u32 nspans = 0;
+	u32 npos = w.pos;
+	w.u32w(0);
+	for (u32 i = 0; i < DMEM_SIZE; )
+	{
+		if (dmem[i] == 0) { i++; continue; }
+		u32 start = i, end = i + 1;
+		while (end < DMEM_SIZE)
+		{
+			u32 k = end;
+			while (k < DMEM_SIZE && k < end + 64 && dmem[k] == 0) k++;
+			if (k >= DMEM_SIZE || dmem[k] == 0) break;
+			end = k + 1;
+		}
+		w.u32w(start); w.u32w(end - start); w.bytes(dmem + start, end - start);
+		nspans++;
+		i = end;
+	}
+	if (buf && npos + 4 <= bufSize) { buf[npos] = (u8)nspans; buf[npos + 1] = (u8)(nspans >> 8); buf[npos + 2] = (u8)(nspans >> 16); buf[npos + 3] = (u8)(nspans >> 24); }
+	return w.pos;
+}
+
+bool tms57002::state_load(const u8* buf, u32 size)
+{
+	Reader r(buf, size);
+	if (r.u32r() != 1) return false;
+	st0 = r.u32r(); st1 = r.u32r(); sti = r.u32r(); aacc = r.u32r(); xoa = r.u32r(); xba = r.u32r(); xwr = r.u32r(); xrd = r.u32r(); txrd = r.u32r(); creg = r.u32r();
+	macc = r.s64r(); macc_read = r.s64r(); macc_write = r.s64r();
+	pc = r.u8r(); hpc = r.u8r(); ca = r.u8r(); id = r.u8r(); ba0 = r.u8r(); ba1 = r.u8r(); rptc = r.u8r(); rptc_next = r.u8r(); sa = r.u8r(); hidx = r.u8r();
+	allow_update = r.u8r(); update_counter_head = r.u8r() & 0x0f; update_counter_tail = r.u8r() & 0x0f; r.u8r(); r.u8r(); r.u8r();
+	for (int i = 0; i < 4; i++) host[i] = r.u8r();
+	xm_adr = r.u32r();
+	for (int i = 0; i < 16; i++) update[i] = r.u32r();
+	for (int i = 0; i < 16; i++) update_addr[i] = r.u8r();
+	for (int i = 0; i < 4; i++) si[i] = r.u32r();
+	for (int i = 0; i < 4; i++) so[i] = r.u32r();
+	for (int i = 0; i < 256; i++) pgm[i] = r.u32r();
+	for (int i = 0; i < 256; i++) cmem[i] = r.u32r();
+	for (int i = 0; i < 256; i++) dmem0[i] = r.u32r();
+	for (int i = 0; i < 32; i++) dmem1[i] = r.u32r();
+	memset(dmem, 0, DMEM_SIZE);
+	u32 nspans = r.u32r();
+	for (u32 s = 0; s < nspans && r.ok; s++)
+	{
+		u32 ofs = r.u32r(), len = r.u32r();
+		for (u32 i = 0; i < len; i++) { u32 b = r.u8r(); if (ofs + i < DMEM_SIZE) dmem[ofs + i] = (u8)b; }
+	}
+	cache_flush();	// the decoded instruction cache is derived from the program and ST1
+	return r.ok;
+}
+
+/***************************************************************************
     C interface
 ***************************************************************************/
 
@@ -1330,6 +1430,28 @@ void tms57002_sync(TMS57002* dsp)
 void tms57002_run(TMS57002* dsp, int cycles)
 {
 	dsp->dsp.run(cycles);
+}
+
+void tms57002_prerun(TMS57002* dsp, UINT32 periods, int cycles)
+{
+	UINT32 k;
+	for (k = 0; k < 4; k++)
+		dsp->dsp.si[k] = 0;
+	for (k = 0; k < periods; k++)
+	{
+		dsp->dsp.sync_w(1);
+		dsp->dsp.run(cycles);
+	}
+}
+
+UINT32 tms57002_state_save(const TMS57002* dsp, UINT8* buf, UINT32 bufSize)
+{
+	return dsp->dsp.state_save(buf, bufSize);
+}
+
+UINT8 tms57002_state_load(TMS57002* dsp, const UINT8* buf, UINT32 size)
+{
+	return dsp->dsp.state_load(buf, size) ? 0 : 1;
 }
 
 }	// extern "C"

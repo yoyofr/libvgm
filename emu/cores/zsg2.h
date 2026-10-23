@@ -24,8 +24,11 @@
 //   0x24-0x27 ZSG-2 output n -> right, bypassing the DSP  (default 0)
 //
 // sample ROM: data block type 0x97 (ZSG-2 ROM data)
+// DSP state image: data block type 0x98 (see tms57002.h), applied where it appears in the stream
 
 #define ZSG2_RWUSER_EXT         0   // DEVRW_A16D16: VGM command 0xE4, addr = (sub << 8) | aa, data = dddd
+#define ZSG2_RWUSER_ROM         1   // DEVRW_MEMSIZE / DEVRW_BLOCK: sample ROM (data block 0x97)
+#define ZSG2_RWUSER_DSPSTATE    2   // DEVRW_MEMSIZE / DEVRW_BLOCK: DSP state image (data block 0x98)
 
 #define ZSG2_EXT_TMS_DATA       0x4
 #define ZSG2_EXT_TMS_CTRL       0x5

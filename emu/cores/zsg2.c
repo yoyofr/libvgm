@@ -90,6 +90,8 @@ static void device_reset_zsg2(void *info);
 static void zsg2_ext_w(void *info, UINT16 addr, UINT16 data);
 static void zsg2_alloc_rom(void *info, UINT32 memsize);
 static void zsg2_write_rom(void *info, UINT32 offset, UINT32 length, const UINT8* data);
+static void zsg2_dsp_state_size(void *info, UINT32 memsize);
+static void zsg2_dsp_state_write(void *info, UINT32 offset, UINT32 length, const UINT8* data);
 
 static void zsg2_set_mute_mask(void *info, UINT32 MuteMask);
 static void zsg2_set_srchg_cb(void *info, DEVCB_SRATE_CHG CallbackFunc, void* DataPtr);
@@ -98,8 +100,10 @@ static void zsg2_set_srchg_cb(void *info, DEVCB_SRATE_CHG CallbackFunc, void* Da
 static DEVDEF_RWFUNC devFunc[] =
 {
 	{RWF_REGISTER | RWF_WRITE, DEVRW_A16D16, ZSG2_RWUSER_EXT, zsg2_ext_w},
-	{RWF_MEMORY | RWF_WRITE, DEVRW_MEMSIZE, 0, zsg2_alloc_rom},
-	{RWF_MEMORY | RWF_WRITE, DEVRW_BLOCK, 0, zsg2_write_rom},
+	{RWF_MEMORY | RWF_WRITE, DEVRW_MEMSIZE, ZSG2_RWUSER_ROM, zsg2_alloc_rom},
+	{RWF_MEMORY | RWF_WRITE, DEVRW_BLOCK, ZSG2_RWUSER_ROM, zsg2_write_rom},
+	{RWF_MEMORY | RWF_WRITE, DEVRW_MEMSIZE, ZSG2_RWUSER_DSPSTATE, zsg2_dsp_state_size},
+	{RWF_MEMORY | RWF_WRITE, DEVRW_BLOCK, ZSG2_RWUSER_DSPSTATE, zsg2_dsp_state_write},
 	{RWF_CHN_MUTE | RWF_WRITE, DEVRW_ALL, 0, zsg2_set_mute_mask},
 	{0x00, 0x00, 0, NULL}
 };
@@ -662,17 +666,7 @@ static void zsg2_ext_w(void *info, UINT16 addr, UINT16 data)
 		device_reset_zsg2(chip);
 		break;
 	case ZSG2_EXT_PRERUN:
-		{
-			UINT32 n = ((UINT32)aa << 16) | data;
-			UINT32 k;
-			for (k = 0; k < ZSG2_OUTPUTS; k++)
-				tms57002_set_input(chip->dsp, (UINT8)k, 0);
-			for (k = 0; k < n; k++)
-			{
-				tms57002_sync(chip->dsp);
-				tms57002_run(chip->dsp, chip->dsp_cycles);
-			}
-		}
+		tms57002_prerun(chip->dsp, ((UINT32)aa << 16) | data, chip->dsp_cycles);
 		break;
 	default:
 		break;
@@ -710,6 +704,20 @@ static void zsg2_write_rom(void *info, UINT32 offset, UINT32 length, const UINT8
 	memcpy(chip->rom + offset, data, length);
 	// invalidate the decompression cache of the written blocks
 	memset(&chip->mem_copy[offset / 4], 0x00, ((length + 3) / 4) * sizeof(UINT32));
+}
+
+// data block 0x98: complete state of the DSP (program, coefficients, memories, registers)
+static void zsg2_dsp_state_size(void *info, UINT32 memsize)
+{
+	(void)info; (void)memsize;
+}
+
+static void zsg2_dsp_state_write(void *info, UINT32 offset, UINT32 length, const UINT8* data)
+{
+	ZSG2Chip* chip = (ZSG2Chip*)info;
+	if (offset != 0)
+		return;
+	tms57002_state_load(chip->dsp, data, length);
 }
 
 static UINT8 device_start_zsg2(const DEV_GEN_CFG* cfg, DEV_INFO* retDevInf)
