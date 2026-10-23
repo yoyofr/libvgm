@@ -156,6 +156,7 @@ private:
 	u8 host[4], hidx, allow_update;
 
 	u32 update[16];
+	u8 update_addr[16];	// coefficient address of each queued update (see get_cmem)
 	u8 update_counter_head, update_counter_tail;
 
 	cd cache;
@@ -225,6 +226,7 @@ tms57002::tms57002()
 	memset(si, 0, sizeof(si));
 	memset(so, 0, sizeof(so));
 	memset(update, 0, sizeof(update));
+	memset(update_addr, 0, sizeof(update_addr));
 	memset(host, 0, sizeof(host));
 	dmem = (u8*)calloc(DMEM_SIZE, 1);
 	aacc = xoa = xba = xwr = xrd = creg = 0;
@@ -349,6 +351,7 @@ void tms57002::data_w(u8 data)
 				u32 val = (host[0]<<24) | (host[1]<<16) | (host[2]<<8) | host[3];
 				sti &= ~SU_CVAL;
 				update[update_counter_head] = val;
+				update_addr[update_counter_head] = sa;
 				update_counter_head = (update_counter_head + 1) & 0x0f;
 				hidx = 1; // the write shouldn't really happen until CLOAD is high though
 				update_empty();
@@ -875,18 +878,16 @@ s64 tms57002::check_macc_overflow_3s()
 
 u32 tms57002::get_cmem(u8 addr)
 {
-	if (sa == addr && update_counter_head != update_counter_tail)
-		sti |= S_UPDATE;
-
-	if (sti & S_UPDATE)
+	// Coefficient update through the host CLOAD path: the queued value is written when the program
+	// reads the coefficient it was sent for. MAME applies the queue to the reads that follow the read
+	// of the last address sent, which depends on how the host writes interleave with the program; a
+	// VGM delivers a whole burst between two passes, so the queue is matched by address instead
+	// (this is what the hardware does, and what MAME's timing produces when a burst is spread out).
+	if (update_counter_head != update_counter_tail && update_addr[update_counter_tail] == addr)
 	{
 		cmem[addr] = update[update_counter_tail];
 		update_counter_tail = (update_counter_tail + 1) & 0x0f;
 		update_empty();
-
-		if (update_counter_head == update_counter_tail)
-			sti &= ~S_UPDATE;
-
 		return cmem[addr]; // The value of crm is ignored during an update.
 	}
 	else
@@ -1146,10 +1147,6 @@ inline int tms57002::dbp(u32 st1)
 
 inline int tms57002::crm(u32 st1)
 {
-	// value overridden during cvar update
-	if (update_counter_head != update_counter_tail)
-		return 0;
-
 	int crm = (st1 & ST1_CRM) >> ST1_CRM_SHIFT;
 	return crm <= 2 ? crm : 0;
 }
