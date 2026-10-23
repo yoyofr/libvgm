@@ -248,7 +248,7 @@
 	{0x27, 0x05, &VGMPlayer::Cmd_Ofs16_Data16},         // E1 C352 register write
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E2
 	{0x25, 0x05, &VGMPlayer::Cmd_ES5506_Gain},          // E3 ES5506 output gain
-	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E4
+	{0x30, 0x05, &VGMPlayer::Cmd_Ofs16_Data16},         // E4 ZSG-2 register write / TMS57002 / mixer gain (16-bit offset, 16-bit data)
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E5
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E6
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E7
@@ -372,7 +372,7 @@
 	{0x2A, 0},	// 94 K007232
 	{0x2E, 0},	// 95 BSMT2000
 	{0x2F, 0},	// 96 ICS2115
-	{0xFF, 0},	// 97
+	{0x30, 0},	// 97 ZSG-2
 	{0xFF, 0},	// 98
 	{0xFF, 0},	// 99
 	{0xFF, 0},	// 9A
@@ -455,7 +455,7 @@
 	0x24,	// E1 ES5503
 	0xFF,	// E2
 	0x25,	// E3 ES5506
-	0xFF,	// E4
+	0x30,	// E4 ZSG-2
 	0xFF,	// E5
 	0xFF,	// E6
 	0xFF,	// E7

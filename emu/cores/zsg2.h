@@ -1,0 +1,38 @@
+#ifndef __ZSG2_H__
+#define __ZSG2_H__
+
+#include "../EmuStructs.h"
+
+// ZOOM ZSG-2 wavetable synthesizer with the attached TMS57002 effects DSP (Taito Zoom sound board).
+//
+// VGM header: clock at offset 0x100 (VGM 1.73, header size 0x110). The DSP runs at clock / 2.
+//
+// VGM command 0xE4 ss aa dddd (ss bit 7 = chip select, bits 0-3 = sub-command, dddd big endian):
+//   0x0..0x3  ZSG-2 register write, 16-bit word offset = ((ss & 3) << 8) | aa (0x000-0x3FF)
+//   0x4       TMS57002 host data write (dd = low byte)
+//   0x5       TMS57002 control lines: dd bit 0 = PLOAD level, bit 1 = CLOAD level (active low)
+//   0x6       mixer gain: aa = channel, dddd = gain in 8.8 fixed point
+//   0x7       reset (ZSG-2 and DSP)
+//   0x8       DSP pre-run: run (aa << 16 | dddd) sample periods of the DSP program with silent inputs, no output
+//             (re-creates the program-internal state, e.g. LFO phases, of a capture cut after the program started)
+//
+// gain channels (default = Taito Zoom board wiring):
+//   0x00-0x03 ZSG-2 output n -> DSP input n        (defaults 0.5, 0.5, 1.0, 1.0)
+//   0x10-0x13 DSP output n -> left                 (default: output 2 = 1.0)
+//   0x14-0x17 DSP output n -> right                (default: output 3 = 1.0)
+//   0x20-0x23 ZSG-2 output n -> left, bypassing the DSP   (default 0)
+//   0x24-0x27 ZSG-2 output n -> right, bypassing the DSP  (default 0)
+//
+// sample ROM: data block type 0x97 (ZSG-2 ROM data)
+
+#define ZSG2_RWUSER_EXT         0   // DEVRW_A16D16: VGM command 0xE4, addr = (sub << 8) | aa, data = dddd
+
+#define ZSG2_EXT_TMS_DATA       0x4
+#define ZSG2_EXT_TMS_CTRL       0x5
+#define ZSG2_EXT_GAIN           0x6
+#define ZSG2_EXT_RESET          0x7
+#define ZSG2_EXT_PRERUN         0x8
+
+extern const DEV_DECL sndDev_ZSG2;
+
+#endif	// __ZSG2_H__

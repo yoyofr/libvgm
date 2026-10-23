@@ -228,6 +228,8 @@ LIBEMUOBJS = \
 	$(LIBEMUOBJ)/cores/es5503.o \
 	$(LIBEMUOBJ)/cores/es5506.o \
 	$(LIBEMUOBJ)/cores/es5510.o \
+	$(LIBEMUOBJ)/cores/zsg2.o \
+	$(LIBEMUOBJ)/cores/tms57002.o \
 	$(LIBEMUOBJ)/cores/x1_010.o \
 	$(LIBEMUOBJ)/cores/c352.o \
 	$(LIBEMUOBJ)/cores/iremga20.o \
