@@ -35,6 +35,8 @@
 #define ZSG2_EXT_GAIN           0x6
 #define ZSG2_EXT_RESET          0x7
 #define ZSG2_EXT_PRERUN         0x8
+#define ZSG2_EXT_TMS_RESET      0x9	// DSP reset only (v3 0x4E bit 2)
+#define ZSG2_EXT_ZSG_RESET      0xA	// ZSG-2 reset only (v3 0x4C; 0x7 resets both)
 
 extern const DEV_DECL sndDev_ZSG2;
 

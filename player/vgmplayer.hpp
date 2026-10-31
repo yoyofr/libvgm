@@ -277,9 +277,17 @@ protected:
 	void Cmd_K007232_Reg(void);				// command 41 - K007232 register write (Ofs8_Data8 with minor fixes)
 	void Cmd_AY_Stereo(void);				// command 30 - set AY8910 stereo mask
 	void Cmd_BSMT2000_Reg(void);			// command C9 - BSMT2000 register write (16-bit data, 8-bit offset)
-	void Cmd_ES5506_Ext(void);				// command D7 - ES5506 extension (bank/window/alias/IRQ ack)
-	void Cmd_ES5510(void);					// command D8 - ES5510 (ESP) host write / halt / routing
-	void Cmd_ES5506_Gain(void);				// command E3 - ES5506 output gain
+	void Cmd_V3_ES5506_Bank(void);			// command 49 - ES5506 external bank of a voice
+	void Cmd_V3_ES5506_RgnMap(void);		// command 4A - ES5506 region map
+	void Cmd_V3_ES5510_Halt(void);			// command 4B - ES5510 ESPHALT line
+	void Cmd_V3_ZSG2_Ctrl(void);			// command 4C - ZSG-2 control (reset)
+	void Cmd_V3_TMS57002_Data(void);		// command 4D - TMS57002 host data write
+	void Cmd_V3_TMS57002_Lines(void);		// command 4E - TMS57002 control lines
+	void Cmd_V3_ES5510_Host(void);			// command CC - ES5510 host write
+	void Cmd_V3_TMS57002_PreRun(void);		// command CD - TMS57002 pre-run
+	void Cmd_V3_Route(void);				// command E2 - serial routing (DSP input <- chip output)
+	void Cmd_V3_Gain(void);					// command E3 - output gain of a chip channel
+	void Cmd_V3_ZSG2_Reg(void);				// command E4 - ZSG-2 register write
 	void Cmd_BSMT2000_Mode(void);			// command 32 - BSMT2000 mode change (8-bit data)
 
 	CPCONV* _cpcUTF16;	// UTF-16 LE -> UTF-8 codepage conversion

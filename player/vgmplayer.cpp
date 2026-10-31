@@ -1622,6 +1622,9 @@ void VGMPlayer::InitDevices(void)
 			SndEmu_GetDeviceFunc(devInf->devDef, RWF_REGISTER | RWF_WRITE, DEVRW_A16D16, 2, (void**)&chipDev.writeGain);
 			SndEmu_GetDeviceFunc(devInf->devDef, RWF_MEMORY | RWF_WRITE, DEVRW_MEMSIZE, 0, (void**)&chipDev.romSize);
 			SndEmu_GetDeviceFunc(devInf->devDef, RWF_MEMORY | RWF_WRITE, DEVRW_BLOCK, 0, (void**)&chipDev.romWrite);
+			// VGM v3 header 0x11C: log2 of the ES5510 DRAM size in words (0 = default, 1M words)
+			if (_hdrBuffer[0x11C] && chipDev.writeEsp != NULL)
+				chipDev.writeEsp(devInf->dataPtr, 0x0600, _hdrBuffer[0x11C]);
 			break;
 		case DEVID_ZSG2:
 			retVal = SndEmu_Start2(chipType, devCfg, devInf, _userDevList, _devStartOpts);

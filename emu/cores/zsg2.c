@@ -248,6 +248,8 @@ typedef struct
 	void* SmpRateData;
 } ZSG2Chip;
 
+static void zsg2_reset_chip(ZSG2Chip* chip);
+
 
 INLINE UINT32 read_memory(ZSG2Chip* chip, UINT32 offset)
 {
@@ -668,6 +670,12 @@ static void zsg2_ext_w(void *info, UINT16 addr, UINT16 data)
 	case ZSG2_EXT_PRERUN:
 		tms57002_prerun(chip->dsp, ((UINT32)aa << 16) | data, chip->dsp_cycles);
 		break;
+	case ZSG2_EXT_TMS_RESET:	// v3 0x4E bit 2: DSP reset pulse only
+		tms57002_reset(chip->dsp);
+		break;
+	case ZSG2_EXT_ZSG_RESET:	// v3 0x4C bit 0: ZSG-2 reset pulse only
+		zsg2_reset_chip(chip);
+		break;
 	default:
 		break;
 	}
@@ -779,6 +787,14 @@ static void device_stop_zsg2(void *info)
 static void device_reset_zsg2(void *info)
 {
 	ZSG2Chip* chip = (ZSG2Chip*)info;
+
+	zsg2_reset_chip(chip);
+	tms57002_reset(chip->dsp);
+}
+
+// ZSG-2 part of the reset (the DSP is left alone)
+static void zsg2_reset_chip(ZSG2Chip* chip)
+{
 	int ch, reg;
 
 	chip->read_address = 0;
@@ -792,8 +808,6 @@ static void device_reset_zsg2(void *info)
 		for (reg = 0; reg < 0x10; reg++)
 			chan_w(chip, ch, reg, 0);
 	chip->sample_count = 0;
-
-	tms57002_reset(chip->dsp);
 }
 
 static void zsg2_set_mute_mask(void *info, UINT32 MuteMask)
