@@ -89,10 +89,10 @@
 	{0x2B, 0x03, &VGMPlayer::Cmd_Ofs4_Data12},          // 42 K005289 register write
 	{0x2D, 0x03, &VGMPlayer::Cmd_Ofs8_Data8},           // 43 MSM5232 register write
 	{0x2F, 0x03, &VGMPlayer::Cmd_Ofs8_Data8},           // 44 ICS2115 register write
-	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 45
-	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 46
-	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 47
-	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 48
+	{0x30, 0x03, &VGMPlayer::Cmd_Ofs8_Data8},           // 45 Namco WSG register write
+	{0x31, 0x03, &VGMPlayer::Cmd_Ofs8_Data8},           // 46 Namco C15 register write
+	{0x32, 0x03, &VGMPlayer::Cmd_Ofs8_Data8},           // 47 Namco C30 register write
+	{0x33, 0x03, &VGMPlayer::Cmd_Ofs8_Data8},           // 48 Namco Pole Position WSG register write
 	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 49
 	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 4A
 	{0xFF, 0x03, &VGMPlayer::Cmd_unknown},              // 4B
@@ -222,8 +222,8 @@
 	{0x22, 0x04, &VGMPlayer::Cmd_Ofs16_Data8},          // C7 VSU-VUE (Virtual Boy) register write
 	{0x26, 0x04, &VGMPlayer::Cmd_Ofs16_Data8},          // C8 X1-010 register write
 	{0x2E, 0x04, &VGMPlayer::Cmd_BSMT2000_Reg},         // C9 BSMT2000 register write
-	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // CA
-	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // CB
+	{0x30, 0x04, &VGMPlayer::Cmd_Ofs16_Data8},          // CA Namco WSG memory write
+	{0x32, 0x04, &VGMPlayer::Cmd_Ofs16_Data8},          // CB Namco C30 memory write
 	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // CC
 	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // CD
 	{0xFF, 0x04, &VGMPlayer::Cmd_unknown},              // CE
@@ -248,7 +248,7 @@
 	{0x27, 0x05, &VGMPlayer::Cmd_Ofs16_Data16},         // E1 C352 register write
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E2
 	{0x25, 0x05, &VGMPlayer::Cmd_ES5506_Gain},          // E3 ES5506 output gain
-	{0x30, 0x05, &VGMPlayer::Cmd_Ofs16_Data16},         // E4 ZSG-2 register write / TMS57002 / mixer gain (16-bit offset, 16-bit data)
+	{0x34, 0x05, &VGMPlayer::Cmd_Ofs16_Data16},         // E4 ZSG-2 register write / TMS57002 / mixer gain (16-bit offset, 16-bit data)
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E5
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E6
 	{0xFF, 0x05, &VGMPlayer::Cmd_unknown},              // E7
@@ -289,7 +289,7 @@
 	0x20,	// 06 SCSP
 	0x14,	// 07 NES APU
 	0x2B,	// 08 MSM5205
-	0xFF,	// 09
+	0x32,	// 09 Namco C30
 	0xFF,	// 0A
 	0xFF,	// 0B
 	0xFF,	// 0C
@@ -372,8 +372,8 @@
 	{0x2A, 0},	// 94 K007232
 	{0x2E, 0},	// 95 BSMT2000
 	{0x2F, 0},	// 96 ICS2115
-	{0x30, 0},	// 97 ZSG-2
-	{0x30, 1},	// 98 ZSG-2 DSP state (TMS57002)
+	{0x34, 0},	// 97 ZSG-2
+	{0x34, 1},	// 98 ZSG-2 DSP state (TMS57002)
 	{0xFF, 0},	// 99
 	{0xFF, 0},	// 9A
 	{0xFF, 0},	// 9B
@@ -422,10 +422,10 @@
 	0x10,	// C1 RF5C164
 	0x14,	// C2 NES APU
 	0x2B,	// C3 K005289
-	0xFF,	// C4
-	0xFF,	// C5
-	0xFF,	// C6
-	0xFF,	// C7
+	0x30,	// C4 Namco WSG
+	0x31,	// C5 Namco C15
+	0x32,	// C6 Namco C30
+	0x33,	// C7 Namco Pole Position WSG
 	0xFF,	// C8
 	0xFF,	// C9
 	0xFF,	// CA
@@ -455,7 +455,7 @@
 	0x24,	// E1 ES5503
 	0xFF,	// E2
 	0x25,	// E3 ES5506
-	0x30,	// E4 ZSG-2
+	0x34,	// E4 ZSG-2
 	0xFF,	// E5
 	0xFF,	// E6
 	0xFF,	// E7
