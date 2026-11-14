@@ -616,9 +616,9 @@ void tms57002::ex_6(const icd *i) // neg sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = -(int64_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -628,9 +628,9 @@ void tms57002::ex_7(const icd *i) // neg sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = -(int64_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -640,9 +640,9 @@ void tms57002::ex_8(const icd *i) // add dmode=0 dbp=0 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) + (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -652,9 +652,9 @@ void tms57002::ex_9(const icd *i) // add dmode=1 dbp=0 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) + (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -664,9 +664,9 @@ void tms57002::ex_10(const icd *i) // add dmode=0 dbp=1 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) + (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -676,9 +676,9 @@ void tms57002::ex_11(const icd *i) // add dmode=1 dbp=1 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) + (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -688,9 +688,9 @@ void tms57002::ex_12(const icd *i) // add dmode=0 dbp=0 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) + (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -700,9 +700,9 @@ void tms57002::ex_13(const icd *i) // add dmode=1 dbp=0 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) + (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -712,9 +712,9 @@ void tms57002::ex_14(const icd *i) // add dmode=0 dbp=1 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) + (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -724,9 +724,9 @@ void tms57002::ex_15(const icd *i) // add dmode=1 dbp=1 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) + (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -736,9 +736,9 @@ void tms57002::ex_16(const icd *i) // add cmode=0 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -748,9 +748,9 @@ void tms57002::ex_17(const icd *i) // add cmode=1 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -760,9 +760,9 @@ void tms57002::ex_18(const icd *i) // add cmode=0 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -772,9 +772,9 @@ void tms57002::ex_19(const icd *i) // add cmode=1 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -785,9 +785,9 @@ void tms57002::ex_20(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -798,9 +798,9 @@ void tms57002::ex_21(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -811,9 +811,9 @@ void tms57002::ex_22(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -824,9 +824,9 @@ void tms57002::ex_23(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -837,9 +837,9 @@ void tms57002::ex_24(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -850,9 +850,9 @@ void tms57002::ex_25(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -863,9 +863,9 @@ void tms57002::ex_26(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -876,9 +876,9 @@ void tms57002::ex_27(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -889,9 +889,9 @@ void tms57002::ex_28(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -902,9 +902,9 @@ void tms57002::ex_29(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -915,9 +915,9 @@ void tms57002::ex_30(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -928,9 +928,9 @@ void tms57002::ex_31(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -941,9 +941,9 @@ void tms57002::ex_32(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -954,9 +954,9 @@ void tms57002::ex_33(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -967,9 +967,9 @@ void tms57002::ex_34(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -980,9 +980,9 @@ void tms57002::ex_35(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -993,9 +993,9 @@ void tms57002::ex_36(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1006,9 +1006,9 @@ void tms57002::ex_37(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1019,9 +1019,9 @@ void tms57002::ex_38(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1032,9 +1032,9 @@ void tms57002::ex_39(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1045,9 +1045,9 @@ void tms57002::ex_40(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1058,9 +1058,9 @@ void tms57002::ex_41(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1071,9 +1071,9 @@ void tms57002::ex_42(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1084,9 +1084,9 @@ void tms57002::ex_43(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1097,9 +1097,9 @@ void tms57002::ex_44(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1110,9 +1110,9 @@ void tms57002::ex_45(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1123,9 +1123,9 @@ void tms57002::ex_46(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1136,9 +1136,9 @@ void tms57002::ex_47(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1149,9 +1149,9 @@ void tms57002::ex_48(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1162,9 +1162,9 @@ void tms57002::ex_49(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1175,9 +1175,9 @@ void tms57002::ex_50(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1188,9 +1188,9 @@ void tms57002::ex_51(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=0 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1201,9 +1201,9 @@ void tms57002::ex_52(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1214,9 +1214,9 @@ void tms57002::ex_53(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1227,9 +1227,9 @@ void tms57002::ex_54(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1240,9 +1240,9 @@ void tms57002::ex_55(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1253,9 +1253,9 @@ void tms57002::ex_56(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1266,9 +1266,9 @@ void tms57002::ex_57(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1279,9 +1279,9 @@ void tms57002::ex_58(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1292,9 +1292,9 @@ void tms57002::ex_59(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1305,9 +1305,9 @@ void tms57002::ex_60(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1318,9 +1318,9 @@ void tms57002::ex_61(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1331,9 +1331,9 @@ void tms57002::ex_62(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1344,9 +1344,9 @@ void tms57002::ex_63(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1357,9 +1357,9 @@ void tms57002::ex_64(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1370,9 +1370,9 @@ void tms57002::ex_65(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1383,9 +1383,9 @@ void tms57002::ex_66(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1396,9 +1396,9 @@ void tms57002::ex_67(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1409,9 +1409,9 @@ void tms57002::ex_68(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1422,9 +1422,9 @@ void tms57002::ex_69(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1435,9 +1435,9 @@ void tms57002::ex_70(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1448,9 +1448,9 @@ void tms57002::ex_71(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1461,9 +1461,9 @@ void tms57002::ex_72(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1474,9 +1474,9 @@ void tms57002::ex_73(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1487,9 +1487,9 @@ void tms57002::ex_74(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1500,9 +1500,9 @@ void tms57002::ex_75(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1513,9 +1513,9 @@ void tms57002::ex_76(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1526,9 +1526,9 @@ void tms57002::ex_77(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1539,9 +1539,9 @@ void tms57002::ex_78(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1552,9 +1552,9 @@ void tms57002::ex_79(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1565,9 +1565,9 @@ void tms57002::ex_80(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1578,9 +1578,9 @@ void tms57002::ex_81(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1591,9 +1591,9 @@ void tms57002::ex_82(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1604,9 +1604,9 @@ void tms57002::ex_83(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=1 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1617,9 +1617,9 @@ void tms57002::ex_84(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1630,9 +1630,9 @@ void tms57002::ex_85(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1643,9 +1643,9 @@ void tms57002::ex_86(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1656,9 +1656,9 @@ void tms57002::ex_87(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1669,9 +1669,9 @@ void tms57002::ex_88(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1682,9 +1682,9 @@ void tms57002::ex_89(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1695,9 +1695,9 @@ void tms57002::ex_90(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1708,9 +1708,9 @@ void tms57002::ex_91(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1721,9 +1721,9 @@ void tms57002::ex_92(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1734,9 +1734,9 @@ void tms57002::ex_93(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1747,9 +1747,9 @@ void tms57002::ex_94(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1760,9 +1760,9 @@ void tms57002::ex_95(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1773,9 +1773,9 @@ void tms57002::ex_96(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1786,9 +1786,9 @@ void tms57002::ex_97(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1799,9 +1799,9 @@ void tms57002::ex_98(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1812,9 +1812,9 @@ void tms57002::ex_99(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=2 movm
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1825,9 +1825,9 @@ void tms57002::ex_100(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1838,9 +1838,9 @@ void tms57002::ex_101(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1851,9 +1851,9 @@ void tms57002::ex_102(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1864,9 +1864,9 @@ void tms57002::ex_103(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1877,9 +1877,9 @@ void tms57002::ex_104(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1890,9 +1890,9 @@ void tms57002::ex_105(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1903,9 +1903,9 @@ void tms57002::ex_106(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1916,9 +1916,9 @@ void tms57002::ex_107(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1929,9 +1929,9 @@ void tms57002::ex_108(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1942,9 +1942,9 @@ void tms57002::ex_109(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1955,9 +1955,9 @@ void tms57002::ex_110(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1968,9 +1968,9 @@ void tms57002::ex_111(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1981,9 +1981,9 @@ void tms57002::ex_112(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -1994,9 +1994,9 @@ void tms57002::ex_113(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2007,9 +2007,9 @@ void tms57002::ex_114(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2020,9 +2020,9 @@ void tms57002::ex_115(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2033,9 +2033,9 @@ void tms57002::ex_116(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2046,9 +2046,9 @@ void tms57002::ex_117(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2059,9 +2059,9 @@ void tms57002::ex_118(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2072,9 +2072,9 @@ void tms57002::ex_119(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2085,9 +2085,9 @@ void tms57002::ex_120(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2098,9 +2098,9 @@ void tms57002::ex_121(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2111,9 +2111,9 @@ void tms57002::ex_122(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2124,9 +2124,9 @@ void tms57002::ex_123(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2137,9 +2137,9 @@ void tms57002::ex_124(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2150,9 +2150,9 @@ void tms57002::ex_125(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2163,9 +2163,9 @@ void tms57002::ex_126(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2176,9 +2176,9 @@ void tms57002::ex_127(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2189,9 +2189,9 @@ void tms57002::ex_128(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2202,9 +2202,9 @@ void tms57002::ex_129(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2215,9 +2215,9 @@ void tms57002::ex_130(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2228,9 +2228,9 @@ void tms57002::ex_131(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2241,9 +2241,9 @@ void tms57002::ex_132(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2254,9 +2254,9 @@ void tms57002::ex_133(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2267,9 +2267,9 @@ void tms57002::ex_134(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2280,9 +2280,9 @@ void tms57002::ex_135(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2293,9 +2293,9 @@ void tms57002::ex_136(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2306,9 +2306,9 @@ void tms57002::ex_137(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2319,9 +2319,9 @@ void tms57002::ex_138(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2332,9 +2332,9 @@ void tms57002::ex_139(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2345,9 +2345,9 @@ void tms57002::ex_140(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2358,9 +2358,9 @@ void tms57002::ex_141(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2371,9 +2371,9 @@ void tms57002::ex_142(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2384,9 +2384,9 @@ void tms57002::ex_143(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2397,9 +2397,9 @@ void tms57002::ex_144(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2410,9 +2410,9 @@ void tms57002::ex_145(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2423,9 +2423,9 @@ void tms57002::ex_146(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2436,9 +2436,9 @@ void tms57002::ex_147(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2449,9 +2449,9 @@ void tms57002::ex_148(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2462,9 +2462,9 @@ void tms57002::ex_149(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2475,9 +2475,9 @@ void tms57002::ex_150(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2488,9 +2488,9 @@ void tms57002::ex_151(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2501,9 +2501,9 @@ void tms57002::ex_152(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2514,9 +2514,9 @@ void tms57002::ex_153(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2527,9 +2527,9 @@ void tms57002::ex_154(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2540,9 +2540,9 @@ void tms57002::ex_155(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2553,9 +2553,9 @@ void tms57002::ex_156(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2566,9 +2566,9 @@ void tms57002::ex_157(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2579,9 +2579,9 @@ void tms57002::ex_158(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2592,9 +2592,9 @@ void tms57002::ex_159(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2605,9 +2605,9 @@ void tms57002::ex_160(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2618,9 +2618,9 @@ void tms57002::ex_161(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2631,9 +2631,9 @@ void tms57002::ex_162(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2644,9 +2644,9 @@ void tms57002::ex_163(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2657,9 +2657,9 @@ void tms57002::ex_164(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2670,9 +2670,9 @@ void tms57002::ex_165(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2683,9 +2683,9 @@ void tms57002::ex_166(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2696,9 +2696,9 @@ void tms57002::ex_167(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2709,9 +2709,9 @@ void tms57002::ex_168(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2722,9 +2722,9 @@ void tms57002::ex_169(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2735,9 +2735,9 @@ void tms57002::ex_170(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2748,9 +2748,9 @@ void tms57002::ex_171(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2761,9 +2761,9 @@ void tms57002::ex_172(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2774,9 +2774,9 @@ void tms57002::ex_173(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2787,9 +2787,9 @@ void tms57002::ex_174(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2800,9 +2800,9 @@ void tms57002::ex_175(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2813,9 +2813,9 @@ void tms57002::ex_176(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2826,9 +2826,9 @@ void tms57002::ex_177(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2839,9 +2839,9 @@ void tms57002::ex_178(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2852,9 +2852,9 @@ void tms57002::ex_179(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2865,9 +2865,9 @@ void tms57002::ex_180(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2878,9 +2878,9 @@ void tms57002::ex_181(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2891,9 +2891,9 @@ void tms57002::ex_182(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2904,9 +2904,9 @@ void tms57002::ex_183(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2917,9 +2917,9 @@ void tms57002::ex_184(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2930,9 +2930,9 @@ void tms57002::ex_185(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2943,9 +2943,9 @@ void tms57002::ex_186(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2956,9 +2956,9 @@ void tms57002::ex_187(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2969,9 +2969,9 @@ void tms57002::ex_188(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2982,9 +2982,9 @@ void tms57002::ex_189(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -2995,9 +2995,9 @@ void tms57002::ex_190(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3008,9 +3008,9 @@ void tms57002::ex_191(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3021,9 +3021,9 @@ void tms57002::ex_192(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3034,9 +3034,9 @@ void tms57002::ex_193(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3047,9 +3047,9 @@ void tms57002::ex_194(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3060,9 +3060,9 @@ void tms57002::ex_195(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3073,9 +3073,9 @@ void tms57002::ex_196(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3086,9 +3086,9 @@ void tms57002::ex_197(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3099,9 +3099,9 @@ void tms57002::ex_198(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3112,9 +3112,9 @@ void tms57002::ex_199(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3125,9 +3125,9 @@ void tms57002::ex_200(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3138,9 +3138,9 @@ void tms57002::ex_201(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3151,9 +3151,9 @@ void tms57002::ex_202(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3164,9 +3164,9 @@ void tms57002::ex_203(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3177,9 +3177,9 @@ void tms57002::ex_204(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3190,9 +3190,9 @@ void tms57002::ex_205(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3203,9 +3203,9 @@ void tms57002::ex_206(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3216,9 +3216,9 @@ void tms57002::ex_207(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3229,9 +3229,9 @@ void tms57002::ex_208(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3242,9 +3242,9 @@ void tms57002::ex_209(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3255,9 +3255,9 @@ void tms57002::ex_210(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3268,9 +3268,9 @@ void tms57002::ex_211(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3281,9 +3281,9 @@ void tms57002::ex_212(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3294,9 +3294,9 @@ void tms57002::ex_213(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3307,9 +3307,9 @@ void tms57002::ex_214(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3320,9 +3320,9 @@ void tms57002::ex_215(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3333,9 +3333,9 @@ void tms57002::ex_216(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3346,9 +3346,9 @@ void tms57002::ex_217(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3359,9 +3359,9 @@ void tms57002::ex_218(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3372,9 +3372,9 @@ void tms57002::ex_219(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3385,9 +3385,9 @@ void tms57002::ex_220(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3398,9 +3398,9 @@ void tms57002::ex_221(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3411,9 +3411,9 @@ void tms57002::ex_222(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3424,9 +3424,9 @@ void tms57002::ex_223(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3437,9 +3437,9 @@ void tms57002::ex_224(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3450,9 +3450,9 @@ void tms57002::ex_225(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3463,9 +3463,9 @@ void tms57002::ex_226(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3476,9 +3476,9 @@ void tms57002::ex_227(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3489,9 +3489,9 @@ void tms57002::ex_228(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3502,9 +3502,9 @@ void tms57002::ex_229(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3515,9 +3515,9 @@ void tms57002::ex_230(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3528,9 +3528,9 @@ void tms57002::ex_231(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3541,9 +3541,9 @@ void tms57002::ex_232(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3554,9 +3554,9 @@ void tms57002::ex_233(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3567,9 +3567,9 @@ void tms57002::ex_234(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3580,9 +3580,9 @@ void tms57002::ex_235(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3593,9 +3593,9 @@ void tms57002::ex_236(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3606,9 +3606,9 @@ void tms57002::ex_237(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3619,9 +3619,9 @@ void tms57002::ex_238(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3632,9 +3632,9 @@ void tms57002::ex_239(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3645,9 +3645,9 @@ void tms57002::ex_240(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3658,9 +3658,9 @@ void tms57002::ex_241(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3671,9 +3671,9 @@ void tms57002::ex_242(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3684,9 +3684,9 @@ void tms57002::ex_243(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3697,9 +3697,9 @@ void tms57002::ex_244(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3710,9 +3710,9 @@ void tms57002::ex_245(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3723,9 +3723,9 @@ void tms57002::ex_246(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3736,9 +3736,9 @@ void tms57002::ex_247(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3749,9 +3749,9 @@ void tms57002::ex_248(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3762,9 +3762,9 @@ void tms57002::ex_249(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3775,9 +3775,9 @@ void tms57002::ex_250(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3788,9 +3788,9 @@ void tms57002::ex_251(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3801,9 +3801,9 @@ void tms57002::ex_252(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3814,9 +3814,9 @@ void tms57002::ex_253(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3827,9 +3827,9 @@ void tms57002::ex_254(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3840,9 +3840,9 @@ void tms57002::ex_255(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3853,9 +3853,9 @@ void tms57002::ex_256(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3866,9 +3866,9 @@ void tms57002::ex_257(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3879,9 +3879,9 @@ void tms57002::ex_258(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3892,9 +3892,9 @@ void tms57002::ex_259(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3905,9 +3905,9 @@ void tms57002::ex_260(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3918,9 +3918,9 @@ void tms57002::ex_261(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3931,9 +3931,9 @@ void tms57002::ex_262(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3944,9 +3944,9 @@ void tms57002::ex_263(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3957,9 +3957,9 @@ void tms57002::ex_264(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3970,9 +3970,9 @@ void tms57002::ex_265(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3983,9 +3983,9 @@ void tms57002::ex_266(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -3996,9 +3996,9 @@ void tms57002::ex_267(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4009,9 +4009,9 @@ void tms57002::ex_268(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4022,9 +4022,9 @@ void tms57002::ex_269(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4035,9 +4035,9 @@ void tms57002::ex_270(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4048,9 +4048,9 @@ void tms57002::ex_271(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4061,9 +4061,9 @@ void tms57002::ex_272(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4074,9 +4074,9 @@ void tms57002::ex_273(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4087,9 +4087,9 @@ void tms57002::ex_274(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4100,9 +4100,9 @@ void tms57002::ex_275(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4113,9 +4113,9 @@ void tms57002::ex_276(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4126,9 +4126,9 @@ void tms57002::ex_277(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4139,9 +4139,9 @@ void tms57002::ex_278(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4152,9 +4152,9 @@ void tms57002::ex_279(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4165,9 +4165,9 @@ void tms57002::ex_280(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4178,9 +4178,9 @@ void tms57002::ex_281(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4191,9 +4191,9 @@ void tms57002::ex_282(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4204,9 +4204,9 @@ void tms57002::ex_283(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4217,9 +4217,9 @@ void tms57002::ex_284(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4230,9 +4230,9 @@ void tms57002::ex_285(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4243,9 +4243,9 @@ void tms57002::ex_286(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4256,9 +4256,9 @@ void tms57002::ex_287(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4269,9 +4269,9 @@ void tms57002::ex_288(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4282,9 +4282,9 @@ void tms57002::ex_289(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4295,9 +4295,9 @@ void tms57002::ex_290(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4308,9 +4308,9 @@ void tms57002::ex_291(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4321,9 +4321,9 @@ void tms57002::ex_292(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4334,9 +4334,9 @@ void tms57002::ex_293(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4347,9 +4347,9 @@ void tms57002::ex_294(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4360,9 +4360,9 @@ void tms57002::ex_295(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4373,9 +4373,9 @@ void tms57002::ex_296(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4386,9 +4386,9 @@ void tms57002::ex_297(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4399,9 +4399,9 @@ void tms57002::ex_298(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4412,9 +4412,9 @@ void tms57002::ex_299(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4425,9 +4425,9 @@ void tms57002::ex_300(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4438,9 +4438,9 @@ void tms57002::ex_301(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4451,9 +4451,9 @@ void tms57002::ex_302(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4464,9 +4464,9 @@ void tms57002::ex_303(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4477,9 +4477,9 @@ void tms57002::ex_304(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4490,9 +4490,9 @@ void tms57002::ex_305(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4503,9 +4503,9 @@ void tms57002::ex_306(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4516,9 +4516,9 @@ void tms57002::ex_307(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4529,9 +4529,9 @@ void tms57002::ex_308(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4542,9 +4542,9 @@ void tms57002::ex_309(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4555,9 +4555,9 @@ void tms57002::ex_310(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4568,9 +4568,9 @@ void tms57002::ex_311(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4581,9 +4581,9 @@ void tms57002::ex_312(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4594,9 +4594,9 @@ void tms57002::ex_313(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4607,9 +4607,9 @@ void tms57002::ex_314(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4620,9 +4620,9 @@ void tms57002::ex_315(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4633,9 +4633,9 @@ void tms57002::ex_316(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4646,9 +4646,9 @@ void tms57002::ex_317(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4659,9 +4659,9 @@ void tms57002::ex_318(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4672,9 +4672,9 @@ void tms57002::ex_319(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4685,9 +4685,9 @@ void tms57002::ex_320(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4698,9 +4698,9 @@ void tms57002::ex_321(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4711,9 +4711,9 @@ void tms57002::ex_322(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4724,9 +4724,9 @@ void tms57002::ex_323(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4737,9 +4737,9 @@ void tms57002::ex_324(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4750,9 +4750,9 @@ void tms57002::ex_325(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4763,9 +4763,9 @@ void tms57002::ex_326(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4776,9 +4776,9 @@ void tms57002::ex_327(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4789,9 +4789,9 @@ void tms57002::ex_328(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4802,9 +4802,9 @@ void tms57002::ex_329(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4815,9 +4815,9 @@ void tms57002::ex_330(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4828,9 +4828,9 @@ void tms57002::ex_331(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4841,9 +4841,9 @@ void tms57002::ex_332(const icd *i) // add dmode=0 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4854,9 +4854,9 @@ void tms57002::ex_333(const icd *i) // add dmode=1 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4867,9 +4867,9 @@ void tms57002::ex_334(const icd *i) // add dmode=0 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4880,9 +4880,9 @@ void tms57002::ex_335(const icd *i) // add dmode=1 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4893,9 +4893,9 @@ void tms57002::ex_336(const icd *i) // add dmode=0 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4906,9 +4906,9 @@ void tms57002::ex_337(const icd *i) // add dmode=1 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4919,9 +4919,9 @@ void tms57002::ex_338(const icd *i) // add dmode=0 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4932,9 +4932,9 @@ void tms57002::ex_339(const icd *i) // add dmode=1 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4944,9 +4944,9 @@ void tms57002::ex_340(const icd *i) // add cmode=0 sfmo=0 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4956,9 +4956,9 @@ void tms57002::ex_341(const icd *i) // add cmode=1 sfmo=0 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4968,9 +4968,9 @@ void tms57002::ex_342(const icd *i) // add cmode=0 sfmo=1 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4980,9 +4980,9 @@ void tms57002::ex_343(const icd *i) // add cmode=1 sfmo=1 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -4992,9 +4992,9 @@ void tms57002::ex_344(const icd *i) // add cmode=0 sfmo=2 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5004,9 +5004,9 @@ void tms57002::ex_345(const icd *i) // add cmode=1 sfmo=2 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5016,9 +5016,9 @@ void tms57002::ex_346(const icd *i) // add cmode=0 sfmo=3 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5028,9 +5028,9 @@ void tms57002::ex_347(const icd *i) // add cmode=1 sfmo=3 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5040,9 +5040,9 @@ void tms57002::ex_348(const icd *i) // add cmode=0 sfmo=0 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5052,9 +5052,9 @@ void tms57002::ex_349(const icd *i) // add cmode=1 sfmo=0 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5064,9 +5064,9 @@ void tms57002::ex_350(const icd *i) // add cmode=0 sfmo=1 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5076,9 +5076,9 @@ void tms57002::ex_351(const icd *i) // add cmode=1 sfmo=1 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5088,9 +5088,9 @@ void tms57002::ex_352(const icd *i) // add cmode=0 sfmo=2 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5100,9 +5100,9 @@ void tms57002::ex_353(const icd *i) // add cmode=1 sfmo=2 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5112,9 +5112,9 @@ void tms57002::ex_354(const icd *i) // add cmode=0 sfmo=3 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5124,9 +5124,9 @@ void tms57002::ex_355(const icd *i) // add cmode=1 sfmo=3 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5136,9 +5136,9 @@ void tms57002::ex_356(const icd *i) // add cmode=0 sfmo=0 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5148,9 +5148,9 @@ void tms57002::ex_357(const icd *i) // add cmode=1 sfmo=0 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5160,9 +5160,9 @@ void tms57002::ex_358(const icd *i) // add cmode=0 sfmo=1 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5172,9 +5172,9 @@ void tms57002::ex_359(const icd *i) // add cmode=1 sfmo=1 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5184,9 +5184,9 @@ void tms57002::ex_360(const icd *i) // add cmode=0 sfmo=2 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5196,9 +5196,9 @@ void tms57002::ex_361(const icd *i) // add cmode=1 sfmo=2 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5208,9 +5208,9 @@ void tms57002::ex_362(const icd *i) // add cmode=0 sfmo=3 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5220,9 +5220,9 @@ void tms57002::ex_363(const icd *i) // add cmode=1 sfmo=3 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5232,9 +5232,9 @@ void tms57002::ex_364(const icd *i) // add cmode=0 sfmo=0 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5244,9 +5244,9 @@ void tms57002::ex_365(const icd *i) // add cmode=1 sfmo=0 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5256,9 +5256,9 @@ void tms57002::ex_366(const icd *i) // add cmode=0 sfmo=1 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5268,9 +5268,9 @@ void tms57002::ex_367(const icd *i) // add cmode=1 sfmo=1 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5280,9 +5280,9 @@ void tms57002::ex_368(const icd *i) // add cmode=0 sfmo=2 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5292,9 +5292,9 @@ void tms57002::ex_369(const icd *i) // add cmode=1 sfmo=2 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5304,9 +5304,9 @@ void tms57002::ex_370(const icd *i) // add cmode=0 sfmo=3 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5316,9 +5316,9 @@ void tms57002::ex_371(const icd *i) // add cmode=1 sfmo=3 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5328,9 +5328,9 @@ void tms57002::ex_372(const icd *i) // add cmode=0 sfmo=0 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5340,9 +5340,9 @@ void tms57002::ex_373(const icd *i) // add cmode=1 sfmo=0 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5352,9 +5352,9 @@ void tms57002::ex_374(const icd *i) // add cmode=0 sfmo=1 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5364,9 +5364,9 @@ void tms57002::ex_375(const icd *i) // add cmode=1 sfmo=1 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5376,9 +5376,9 @@ void tms57002::ex_376(const icd *i) // add cmode=0 sfmo=2 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5388,9 +5388,9 @@ void tms57002::ex_377(const icd *i) // add cmode=1 sfmo=2 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5400,9 +5400,9 @@ void tms57002::ex_378(const icd *i) // add cmode=0 sfmo=3 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5412,9 +5412,9 @@ void tms57002::ex_379(const icd *i) // add cmode=1 sfmo=3 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5424,9 +5424,9 @@ void tms57002::ex_380(const icd *i) // add cmode=0 sfmo=0 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5436,9 +5436,9 @@ void tms57002::ex_381(const icd *i) // add cmode=1 sfmo=0 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5448,9 +5448,9 @@ void tms57002::ex_382(const icd *i) // add cmode=0 sfmo=1 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5460,9 +5460,9 @@ void tms57002::ex_383(const icd *i) // add cmode=1 sfmo=1 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5472,9 +5472,9 @@ void tms57002::ex_384(const icd *i) // add cmode=0 sfmo=2 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5484,9 +5484,9 @@ void tms57002::ex_385(const icd *i) // add cmode=1 sfmo=2 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5496,9 +5496,9 @@ void tms57002::ex_386(const icd *i) // add cmode=0 sfmo=3 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5508,9 +5508,9 @@ void tms57002::ex_387(const icd *i) // add cmode=1 sfmo=3 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5520,9 +5520,9 @@ void tms57002::ex_388(const icd *i) // add cmode=0 sfmo=0 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5532,9 +5532,9 @@ void tms57002::ex_389(const icd *i) // add cmode=1 sfmo=0 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5544,9 +5544,9 @@ void tms57002::ex_390(const icd *i) // add cmode=0 sfmo=1 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5556,9 +5556,9 @@ void tms57002::ex_391(const icd *i) // add cmode=1 sfmo=1 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5568,9 +5568,9 @@ void tms57002::ex_392(const icd *i) // add cmode=0 sfmo=2 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5580,9 +5580,9 @@ void tms57002::ex_393(const icd *i) // add cmode=1 sfmo=2 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5592,9 +5592,9 @@ void tms57002::ex_394(const icd *i) // add cmode=0 sfmo=3 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5604,9 +5604,9 @@ void tms57002::ex_395(const icd *i) // add cmode=1 sfmo=3 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5616,9 +5616,9 @@ void tms57002::ex_396(const icd *i) // add cmode=0 sfmo=0 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5628,9 +5628,9 @@ void tms57002::ex_397(const icd *i) // add cmode=1 sfmo=0 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5640,9 +5640,9 @@ void tms57002::ex_398(const icd *i) // add cmode=0 sfmo=1 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5652,9 +5652,9 @@ void tms57002::ex_399(const icd *i) // add cmode=1 sfmo=1 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5664,9 +5664,9 @@ void tms57002::ex_400(const icd *i) // add cmode=0 sfmo=2 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5676,9 +5676,9 @@ void tms57002::ex_401(const icd *i) // add cmode=1 sfmo=2 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5688,9 +5688,9 @@ void tms57002::ex_402(const icd *i) // add cmode=0 sfmo=3 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5700,9 +5700,9 @@ void tms57002::ex_403(const icd *i) // add cmode=1 sfmo=3 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5712,9 +5712,9 @@ void tms57002::ex_404(const icd *i) // add cmode=0 sfmo=0 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5724,9 +5724,9 @@ void tms57002::ex_405(const icd *i) // add cmode=1 sfmo=0 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5736,9 +5736,9 @@ void tms57002::ex_406(const icd *i) // add cmode=0 sfmo=1 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5748,9 +5748,9 @@ void tms57002::ex_407(const icd *i) // add cmode=1 sfmo=1 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5760,9 +5760,9 @@ void tms57002::ex_408(const icd *i) // add cmode=0 sfmo=2 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5772,9 +5772,9 @@ void tms57002::ex_409(const icd *i) // add cmode=1 sfmo=2 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5784,9 +5784,9 @@ void tms57002::ex_410(const icd *i) // add cmode=0 sfmo=3 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5796,9 +5796,9 @@ void tms57002::ex_411(const icd *i) // add cmode=1 sfmo=3 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5808,9 +5808,9 @@ void tms57002::ex_412(const icd *i) // add cmode=0 sfmo=0 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5820,9 +5820,9 @@ void tms57002::ex_413(const icd *i) // add cmode=1 sfmo=0 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5832,9 +5832,9 @@ void tms57002::ex_414(const icd *i) // add cmode=0 sfmo=1 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5844,9 +5844,9 @@ void tms57002::ex_415(const icd *i) // add cmode=1 sfmo=1 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5856,9 +5856,9 @@ void tms57002::ex_416(const icd *i) // add cmode=0 sfmo=2 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5868,9 +5868,9 @@ void tms57002::ex_417(const icd *i) // add cmode=1 sfmo=2 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5880,9 +5880,9 @@ void tms57002::ex_418(const icd *i) // add cmode=0 sfmo=3 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5892,9 +5892,9 @@ void tms57002::ex_419(const icd *i) // add cmode=1 sfmo=3 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) + (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5904,9 +5904,9 @@ void tms57002::ex_420(const icd *i) // add cmode=0 dmode=0 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) + (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5916,9 +5916,9 @@ void tms57002::ex_421(const icd *i) // add cmode=1 dmode=0 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) + (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5928,9 +5928,9 @@ void tms57002::ex_422(const icd *i) // add cmode=0 dmode=1 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) + (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5940,9 +5940,9 @@ void tms57002::ex_423(const icd *i) // add cmode=1 dmode=1 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) + (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5952,9 +5952,9 @@ void tms57002::ex_424(const icd *i) // add cmode=0 dmode=0 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) + (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5964,9 +5964,9 @@ void tms57002::ex_425(const icd *i) // add cmode=1 dmode=0 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) + (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5976,9 +5976,9 @@ void tms57002::ex_426(const icd *i) // add cmode=0 dmode=1 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) + (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -5988,9 +5988,9 @@ void tms57002::ex_427(const icd *i) // add cmode=1 dmode=1 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) + (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6000,9 +6000,9 @@ void tms57002::ex_428(const icd *i) // sub dmode=0 dbp=0 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) - (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6012,9 +6012,9 @@ void tms57002::ex_429(const icd *i) // sub dmode=1 dbp=0 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) - (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6024,9 +6024,9 @@ void tms57002::ex_430(const icd *i) // sub dmode=0 dbp=1 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) - (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6036,9 +6036,9 @@ void tms57002::ex_431(const icd *i) // sub dmode=1 dbp=1 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) - (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6048,9 +6048,9 @@ void tms57002::ex_432(const icd *i) // sub dmode=0 dbp=0 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) - (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6060,9 +6060,9 @@ void tms57002::ex_433(const icd *i) // sub dmode=1 dbp=0 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) - (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6072,9 +6072,9 @@ void tms57002::ex_434(const icd *i) // sub dmode=0 dbp=1 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) - (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6084,9 +6084,9 @@ void tms57002::ex_435(const icd *i) // sub dmode=1 dbp=1 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) - (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6096,9 +6096,9 @@ void tms57002::ex_436(const icd *i) // sub cmode=0 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6108,9 +6108,9 @@ void tms57002::ex_437(const icd *i) // sub cmode=1 sfao=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (int64_t)(int32_t)aacc;
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6120,9 +6120,9 @@ void tms57002::ex_438(const icd *i) // sub cmode=0 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6132,9 +6132,9 @@ void tms57002::ex_439(const icd *i) // sub cmode=1 sfao=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (int64_t)(int32_t)(aacc << 7);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6145,9 +6145,9 @@ void tms57002::ex_440(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6158,9 +6158,9 @@ void tms57002::ex_441(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6171,9 +6171,9 @@ void tms57002::ex_442(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6184,9 +6184,9 @@ void tms57002::ex_443(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6197,9 +6197,9 @@ void tms57002::ex_444(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6210,9 +6210,9 @@ void tms57002::ex_445(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6223,9 +6223,9 @@ void tms57002::ex_446(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6236,9 +6236,9 @@ void tms57002::ex_447(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6249,9 +6249,9 @@ void tms57002::ex_448(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6262,9 +6262,9 @@ void tms57002::ex_449(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6275,9 +6275,9 @@ void tms57002::ex_450(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6288,9 +6288,9 @@ void tms57002::ex_451(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6301,9 +6301,9 @@ void tms57002::ex_452(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6314,9 +6314,9 @@ void tms57002::ex_453(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6327,9 +6327,9 @@ void tms57002::ex_454(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6340,9 +6340,9 @@ void tms57002::ex_455(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6353,9 +6353,9 @@ void tms57002::ex_456(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6366,9 +6366,9 @@ void tms57002::ex_457(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6379,9 +6379,9 @@ void tms57002::ex_458(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6392,9 +6392,9 @@ void tms57002::ex_459(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6405,9 +6405,9 @@ void tms57002::ex_460(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6418,9 +6418,9 @@ void tms57002::ex_461(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6431,9 +6431,9 @@ void tms57002::ex_462(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6444,9 +6444,9 @@ void tms57002::ex_463(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6457,9 +6457,9 @@ void tms57002::ex_464(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6470,9 +6470,9 @@ void tms57002::ex_465(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6483,9 +6483,9 @@ void tms57002::ex_466(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6496,9 +6496,9 @@ void tms57002::ex_467(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6509,9 +6509,9 @@ void tms57002::ex_468(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6522,9 +6522,9 @@ void tms57002::ex_469(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6535,9 +6535,9 @@ void tms57002::ex_470(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6548,9 +6548,9 @@ void tms57002::ex_471(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6561,9 +6561,9 @@ void tms57002::ex_472(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6574,9 +6574,9 @@ void tms57002::ex_473(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6587,9 +6587,9 @@ void tms57002::ex_474(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6600,9 +6600,9 @@ void tms57002::ex_475(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6613,9 +6613,9 @@ void tms57002::ex_476(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6626,9 +6626,9 @@ void tms57002::ex_477(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6639,9 +6639,9 @@ void tms57002::ex_478(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6652,9 +6652,9 @@ void tms57002::ex_479(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6665,9 +6665,9 @@ void tms57002::ex_480(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6678,9 +6678,9 @@ void tms57002::ex_481(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6691,9 +6691,9 @@ void tms57002::ex_482(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6704,9 +6704,9 @@ void tms57002::ex_483(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6717,9 +6717,9 @@ void tms57002::ex_484(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6730,9 +6730,9 @@ void tms57002::ex_485(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6743,9 +6743,9 @@ void tms57002::ex_486(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6756,9 +6756,9 @@ void tms57002::ex_487(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6769,9 +6769,9 @@ void tms57002::ex_488(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6782,9 +6782,9 @@ void tms57002::ex_489(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6795,9 +6795,9 @@ void tms57002::ex_490(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6808,9 +6808,9 @@ void tms57002::ex_491(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6821,9 +6821,9 @@ void tms57002::ex_492(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6834,9 +6834,9 @@ void tms57002::ex_493(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6847,9 +6847,9 @@ void tms57002::ex_494(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6860,9 +6860,9 @@ void tms57002::ex_495(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6873,9 +6873,9 @@ void tms57002::ex_496(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6886,9 +6886,9 @@ void tms57002::ex_497(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6899,9 +6899,9 @@ void tms57002::ex_498(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6912,9 +6912,9 @@ void tms57002::ex_499(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6925,9 +6925,9 @@ void tms57002::ex_500(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6938,9 +6938,9 @@ void tms57002::ex_501(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6951,9 +6951,9 @@ void tms57002::ex_502(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6964,9 +6964,9 @@ void tms57002::ex_503(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6977,9 +6977,9 @@ void tms57002::ex_504(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -6990,9 +6990,9 @@ void tms57002::ex_505(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7003,9 +7003,9 @@ void tms57002::ex_506(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7016,9 +7016,9 @@ void tms57002::ex_507(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7029,9 +7029,9 @@ void tms57002::ex_508(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7042,9 +7042,9 @@ void tms57002::ex_509(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7055,9 +7055,9 @@ void tms57002::ex_510(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7068,9 +7068,9 @@ void tms57002::ex_511(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7081,9 +7081,9 @@ void tms57002::ex_512(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7094,9 +7094,9 @@ void tms57002::ex_513(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7107,9 +7107,9 @@ void tms57002::ex_514(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7120,9 +7120,9 @@ void tms57002::ex_515(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7133,9 +7133,9 @@ void tms57002::ex_516(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7146,9 +7146,9 @@ void tms57002::ex_517(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7159,9 +7159,9 @@ void tms57002::ex_518(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7172,9 +7172,9 @@ void tms57002::ex_519(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7185,9 +7185,9 @@ void tms57002::ex_520(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7198,9 +7198,9 @@ void tms57002::ex_521(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7211,9 +7211,9 @@ void tms57002::ex_522(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7224,9 +7224,9 @@ void tms57002::ex_523(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7237,9 +7237,9 @@ void tms57002::ex_524(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7250,9 +7250,9 @@ void tms57002::ex_525(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7263,9 +7263,9 @@ void tms57002::ex_526(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7276,9 +7276,9 @@ void tms57002::ex_527(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7289,9 +7289,9 @@ void tms57002::ex_528(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7302,9 +7302,9 @@ void tms57002::ex_529(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7315,9 +7315,9 @@ void tms57002::ex_530(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7328,9 +7328,9 @@ void tms57002::ex_531(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7341,9 +7341,9 @@ void tms57002::ex_532(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7354,9 +7354,9 @@ void tms57002::ex_533(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7367,9 +7367,9 @@ void tms57002::ex_534(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7380,9 +7380,9 @@ void tms57002::ex_535(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7393,9 +7393,9 @@ void tms57002::ex_536(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7406,9 +7406,9 @@ void tms57002::ex_537(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7419,9 +7419,9 @@ void tms57002::ex_538(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7432,9 +7432,9 @@ void tms57002::ex_539(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7445,9 +7445,9 @@ void tms57002::ex_540(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7458,9 +7458,9 @@ void tms57002::ex_541(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7471,9 +7471,9 @@ void tms57002::ex_542(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7484,9 +7484,9 @@ void tms57002::ex_543(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7497,9 +7497,9 @@ void tms57002::ex_544(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7510,9 +7510,9 @@ void tms57002::ex_545(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7523,9 +7523,9 @@ void tms57002::ex_546(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7536,9 +7536,9 @@ void tms57002::ex_547(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7549,9 +7549,9 @@ void tms57002::ex_548(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7562,9 +7562,9 @@ void tms57002::ex_549(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7575,9 +7575,9 @@ void tms57002::ex_550(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7588,9 +7588,9 @@ void tms57002::ex_551(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7601,9 +7601,9 @@ void tms57002::ex_552(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7614,9 +7614,9 @@ void tms57002::ex_553(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7627,9 +7627,9 @@ void tms57002::ex_554(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7640,9 +7640,9 @@ void tms57002::ex_555(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7653,9 +7653,9 @@ void tms57002::ex_556(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7666,9 +7666,9 @@ void tms57002::ex_557(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7679,9 +7679,9 @@ void tms57002::ex_558(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7692,9 +7692,9 @@ void tms57002::ex_559(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7705,9 +7705,9 @@ void tms57002::ex_560(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7718,9 +7718,9 @@ void tms57002::ex_561(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7731,9 +7731,9 @@ void tms57002::ex_562(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7744,9 +7744,9 @@ void tms57002::ex_563(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7757,9 +7757,9 @@ void tms57002::ex_564(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7770,9 +7770,9 @@ void tms57002::ex_565(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7783,9 +7783,9 @@ void tms57002::ex_566(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7796,9 +7796,9 @@ void tms57002::ex_567(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7809,9 +7809,9 @@ void tms57002::ex_568(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7822,9 +7822,9 @@ void tms57002::ex_569(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7835,9 +7835,9 @@ void tms57002::ex_570(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7848,9 +7848,9 @@ void tms57002::ex_571(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7861,9 +7861,9 @@ void tms57002::ex_572(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7874,9 +7874,9 @@ void tms57002::ex_573(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7887,9 +7887,9 @@ void tms57002::ex_574(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7900,9 +7900,9 @@ void tms57002::ex_575(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7913,9 +7913,9 @@ void tms57002::ex_576(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7926,9 +7926,9 @@ void tms57002::ex_577(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7939,9 +7939,9 @@ void tms57002::ex_578(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7952,9 +7952,9 @@ void tms57002::ex_579(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7965,9 +7965,9 @@ void tms57002::ex_580(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7978,9 +7978,9 @@ void tms57002::ex_581(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -7991,9 +7991,9 @@ void tms57002::ex_582(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8004,9 +8004,9 @@ void tms57002::ex_583(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8017,9 +8017,9 @@ void tms57002::ex_584(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8030,9 +8030,9 @@ void tms57002::ex_585(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8043,9 +8043,9 @@ void tms57002::ex_586(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8056,9 +8056,9 @@ void tms57002::ex_587(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8069,9 +8069,9 @@ void tms57002::ex_588(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8082,9 +8082,9 @@ void tms57002::ex_589(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8095,9 +8095,9 @@ void tms57002::ex_590(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8108,9 +8108,9 @@ void tms57002::ex_591(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8121,9 +8121,9 @@ void tms57002::ex_592(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8134,9 +8134,9 @@ void tms57002::ex_593(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8147,9 +8147,9 @@ void tms57002::ex_594(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8160,9 +8160,9 @@ void tms57002::ex_595(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8173,9 +8173,9 @@ void tms57002::ex_596(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8186,9 +8186,9 @@ void tms57002::ex_597(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8199,9 +8199,9 @@ void tms57002::ex_598(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8212,9 +8212,9 @@ void tms57002::ex_599(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8225,9 +8225,9 @@ void tms57002::ex_600(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8238,9 +8238,9 @@ void tms57002::ex_601(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8251,9 +8251,9 @@ void tms57002::ex_602(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8264,9 +8264,9 @@ void tms57002::ex_603(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8277,9 +8277,9 @@ void tms57002::ex_604(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8290,9 +8290,9 @@ void tms57002::ex_605(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8303,9 +8303,9 @@ void tms57002::ex_606(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8316,9 +8316,9 @@ void tms57002::ex_607(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8329,9 +8329,9 @@ void tms57002::ex_608(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8342,9 +8342,9 @@ void tms57002::ex_609(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8355,9 +8355,9 @@ void tms57002::ex_610(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8368,9 +8368,9 @@ void tms57002::ex_611(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8381,9 +8381,9 @@ void tms57002::ex_612(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8394,9 +8394,9 @@ void tms57002::ex_613(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8407,9 +8407,9 @@ void tms57002::ex_614(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8420,9 +8420,9 @@ void tms57002::ex_615(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8433,9 +8433,9 @@ void tms57002::ex_616(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8446,9 +8446,9 @@ void tms57002::ex_617(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8459,9 +8459,9 @@ void tms57002::ex_618(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8472,9 +8472,9 @@ void tms57002::ex_619(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8485,9 +8485,9 @@ void tms57002::ex_620(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8498,9 +8498,9 @@ void tms57002::ex_621(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8511,9 +8511,9 @@ void tms57002::ex_622(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8524,9 +8524,9 @@ void tms57002::ex_623(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8537,9 +8537,9 @@ void tms57002::ex_624(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8550,9 +8550,9 @@ void tms57002::ex_625(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8563,9 +8563,9 @@ void tms57002::ex_626(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8576,9 +8576,9 @@ void tms57002::ex_627(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8589,9 +8589,9 @@ void tms57002::ex_628(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8602,9 +8602,9 @@ void tms57002::ex_629(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8615,9 +8615,9 @@ void tms57002::ex_630(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8628,9 +8628,9 @@ void tms57002::ex_631(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=0 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8641,9 +8641,9 @@ void tms57002::ex_632(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8654,9 +8654,9 @@ void tms57002::ex_633(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8667,9 +8667,9 @@ void tms57002::ex_634(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8680,9 +8680,9 @@ void tms57002::ex_635(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8693,9 +8693,9 @@ void tms57002::ex_636(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8706,9 +8706,9 @@ void tms57002::ex_637(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8719,9 +8719,9 @@ void tms57002::ex_638(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8732,9 +8732,9 @@ void tms57002::ex_639(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8745,9 +8745,9 @@ void tms57002::ex_640(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8758,9 +8758,9 @@ void tms57002::ex_641(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8771,9 +8771,9 @@ void tms57002::ex_642(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8784,9 +8784,9 @@ void tms57002::ex_643(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8797,9 +8797,9 @@ void tms57002::ex_644(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8810,9 +8810,9 @@ void tms57002::ex_645(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8823,9 +8823,9 @@ void tms57002::ex_646(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8836,9 +8836,9 @@ void tms57002::ex_647(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8849,9 +8849,9 @@ void tms57002::ex_648(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8862,9 +8862,9 @@ void tms57002::ex_649(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8875,9 +8875,9 @@ void tms57002::ex_650(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8888,9 +8888,9 @@ void tms57002::ex_651(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8901,9 +8901,9 @@ void tms57002::ex_652(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8914,9 +8914,9 @@ void tms57002::ex_653(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8927,9 +8927,9 @@ void tms57002::ex_654(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8940,9 +8940,9 @@ void tms57002::ex_655(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8953,9 +8953,9 @@ void tms57002::ex_656(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8966,9 +8966,9 @@ void tms57002::ex_657(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8979,9 +8979,9 @@ void tms57002::ex_658(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -8992,9 +8992,9 @@ void tms57002::ex_659(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9005,9 +9005,9 @@ void tms57002::ex_660(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9018,9 +9018,9 @@ void tms57002::ex_661(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9031,9 +9031,9 @@ void tms57002::ex_662(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9044,9 +9044,9 @@ void tms57002::ex_663(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=1 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9057,9 +9057,9 @@ void tms57002::ex_664(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9070,9 +9070,9 @@ void tms57002::ex_665(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9083,9 +9083,9 @@ void tms57002::ex_666(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9096,9 +9096,9 @@ void tms57002::ex_667(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9109,9 +9109,9 @@ void tms57002::ex_668(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9122,9 +9122,9 @@ void tms57002::ex_669(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9135,9 +9135,9 @@ void tms57002::ex_670(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9148,9 +9148,9 @@ void tms57002::ex_671(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9161,9 +9161,9 @@ void tms57002::ex_672(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9174,9 +9174,9 @@ void tms57002::ex_673(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9187,9 +9187,9 @@ void tms57002::ex_674(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9200,9 +9200,9 @@ void tms57002::ex_675(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9213,9 +9213,9 @@ void tms57002::ex_676(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9226,9 +9226,9 @@ void tms57002::ex_677(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9239,9 +9239,9 @@ void tms57002::ex_678(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9252,9 +9252,9 @@ void tms57002::ex_679(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9265,9 +9265,9 @@ void tms57002::ex_680(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9278,9 +9278,9 @@ void tms57002::ex_681(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9291,9 +9291,9 @@ void tms57002::ex_682(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9304,9 +9304,9 @@ void tms57002::ex_683(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9317,9 +9317,9 @@ void tms57002::ex_684(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9330,9 +9330,9 @@ void tms57002::ex_685(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9343,9 +9343,9 @@ void tms57002::ex_686(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9356,9 +9356,9 @@ void tms57002::ex_687(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9369,9 +9369,9 @@ void tms57002::ex_688(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9382,9 +9382,9 @@ void tms57002::ex_689(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9395,9 +9395,9 @@ void tms57002::ex_690(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9408,9 +9408,9 @@ void tms57002::ex_691(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9421,9 +9421,9 @@ void tms57002::ex_692(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9434,9 +9434,9 @@ void tms57002::ex_693(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9447,9 +9447,9 @@ void tms57002::ex_694(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9460,9 +9460,9 @@ void tms57002::ex_695(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=2 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9473,9 +9473,9 @@ void tms57002::ex_696(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9486,9 +9486,9 @@ void tms57002::ex_697(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9499,9 +9499,9 @@ void tms57002::ex_698(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9512,9 +9512,9 @@ void tms57002::ex_699(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9525,9 +9525,9 @@ void tms57002::ex_700(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9538,9 +9538,9 @@ void tms57002::ex_701(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9551,9 +9551,9 @@ void tms57002::ex_702(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9564,9 +9564,9 @@ void tms57002::ex_703(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9577,9 +9577,9 @@ void tms57002::ex_704(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9590,9 +9590,9 @@ void tms57002::ex_705(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9603,9 +9603,9 @@ void tms57002::ex_706(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9616,9 +9616,9 @@ void tms57002::ex_707(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9629,9 +9629,9 @@ void tms57002::ex_708(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9642,9 +9642,9 @@ void tms57002::ex_709(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9655,9 +9655,9 @@ void tms57002::ex_710(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9668,9 +9668,9 @@ void tms57002::ex_711(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9681,9 +9681,9 @@ void tms57002::ex_712(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9694,9 +9694,9 @@ void tms57002::ex_713(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9707,9 +9707,9 @@ void tms57002::ex_714(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9720,9 +9720,9 @@ void tms57002::ex_715(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9733,9 +9733,9 @@ void tms57002::ex_716(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9746,9 +9746,9 @@ void tms57002::ex_717(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9759,9 +9759,9 @@ void tms57002::ex_718(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9772,9 +9772,9 @@ void tms57002::ex_719(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9785,9 +9785,9 @@ void tms57002::ex_720(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9798,9 +9798,9 @@ void tms57002::ex_721(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9811,9 +9811,9 @@ void tms57002::ex_722(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9824,9 +9824,9 @@ void tms57002::ex_723(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9837,9 +9837,9 @@ void tms57002::ex_724(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9850,9 +9850,9 @@ void tms57002::ex_725(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9863,9 +9863,9 @@ void tms57002::ex_726(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9876,9 +9876,9 @@ void tms57002::ex_727(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=3 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9889,9 +9889,9 @@ void tms57002::ex_728(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9902,9 +9902,9 @@ void tms57002::ex_729(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9915,9 +9915,9 @@ void tms57002::ex_730(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9928,9 +9928,9 @@ void tms57002::ex_731(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9941,9 +9941,9 @@ void tms57002::ex_732(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9954,9 +9954,9 @@ void tms57002::ex_733(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9967,9 +9967,9 @@ void tms57002::ex_734(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9980,9 +9980,9 @@ void tms57002::ex_735(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=0 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -9993,9 +9993,9 @@ void tms57002::ex_736(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10006,9 +10006,9 @@ void tms57002::ex_737(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10019,9 +10019,9 @@ void tms57002::ex_738(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10032,9 +10032,9 @@ void tms57002::ex_739(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10045,9 +10045,9 @@ void tms57002::ex_740(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10058,9 +10058,9 @@ void tms57002::ex_741(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10071,9 +10071,9 @@ void tms57002::ex_742(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10084,9 +10084,9 @@ void tms57002::ex_743(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=1 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10097,9 +10097,9 @@ void tms57002::ex_744(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10110,9 +10110,9 @@ void tms57002::ex_745(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10123,9 +10123,9 @@ void tms57002::ex_746(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10136,9 +10136,9 @@ void tms57002::ex_747(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10149,9 +10149,9 @@ void tms57002::ex_748(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10162,9 +10162,9 @@ void tms57002::ex_749(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10175,9 +10175,9 @@ void tms57002::ex_750(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10188,9 +10188,9 @@ void tms57002::ex_751(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=2 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10201,9 +10201,9 @@ void tms57002::ex_752(const icd *i) // sub dmode=0 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(i->param + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10214,9 +10214,9 @@ void tms57002::ex_753(const icd *i) // sub dmode=1 sfai=0 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem0[(id + ba0) & 0xff] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10227,9 +10227,9 @@ void tms57002::ex_754(const icd *i) // sub dmode=0 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(i->param + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10240,9 +10240,9 @@ void tms57002::ex_755(const icd *i) // sub dmode=1 sfai=1 dbp=0 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem0[(id + ba0) & 0xff] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10253,9 +10253,9 @@ void tms57002::ex_756(const icd *i) // sub dmode=0 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(i->param + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10266,9 +10266,9 @@ void tms57002::ex_757(const icd *i) // sub dmode=1 sfai=0 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d =  (dmem1[(id + ba1) & 0x1f] << 8);
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10279,9 +10279,9 @@ void tms57002::ex_758(const icd *i) // sub dmode=0 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(i->param + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10292,9 +10292,9 @@ void tms57002::ex_759(const icd *i) // sub dmode=1 sfai=1 dbp=1 sfmo=3 rnd=4 mov
 	int64_t r; (void)r;
 	d = ((int32_t)( (dmem1[(id + ba1) & 0x1f] << 8))) >> 1;
 	r = (int64_t)(int32_t)d - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10304,9 +10304,9 @@ void tms57002::ex_760(const icd *i) // sub cmode=0 sfmo=0 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10316,9 +10316,9 @@ void tms57002::ex_761(const icd *i) // sub cmode=1 sfmo=0 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10328,9 +10328,9 @@ void tms57002::ex_762(const icd *i) // sub cmode=0 sfmo=1 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10340,9 +10340,9 @@ void tms57002::ex_763(const icd *i) // sub cmode=1 sfmo=1 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10352,9 +10352,9 @@ void tms57002::ex_764(const icd *i) // sub cmode=0 sfmo=2 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10364,9 +10364,9 @@ void tms57002::ex_765(const icd *i) // sub cmode=1 sfmo=2 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10376,9 +10376,9 @@ void tms57002::ex_766(const icd *i) // sub cmode=0 sfmo=3 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10388,9 +10388,9 @@ void tms57002::ex_767(const icd *i) // sub cmode=1 sfmo=3 rnd=0 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10400,9 +10400,9 @@ void tms57002::ex_768(const icd *i) // sub cmode=0 sfmo=0 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10412,9 +10412,9 @@ void tms57002::ex_769(const icd *i) // sub cmode=1 sfmo=0 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10424,9 +10424,9 @@ void tms57002::ex_770(const icd *i) // sub cmode=0 sfmo=1 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10436,9 +10436,9 @@ void tms57002::ex_771(const icd *i) // sub cmode=1 sfmo=1 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10448,9 +10448,9 @@ void tms57002::ex_772(const icd *i) // sub cmode=0 sfmo=2 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10460,9 +10460,9 @@ void tms57002::ex_773(const icd *i) // sub cmode=1 sfmo=2 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10472,9 +10472,9 @@ void tms57002::ex_774(const icd *i) // sub cmode=0 sfmo=3 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10484,9 +10484,9 @@ void tms57002::ex_775(const icd *i) // sub cmode=1 sfmo=3 rnd=1 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10496,9 +10496,9 @@ void tms57002::ex_776(const icd *i) // sub cmode=0 sfmo=0 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10508,9 +10508,9 @@ void tms57002::ex_777(const icd *i) // sub cmode=1 sfmo=0 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10520,9 +10520,9 @@ void tms57002::ex_778(const icd *i) // sub cmode=0 sfmo=1 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10532,9 +10532,9 @@ void tms57002::ex_779(const icd *i) // sub cmode=1 sfmo=1 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10544,9 +10544,9 @@ void tms57002::ex_780(const icd *i) // sub cmode=0 sfmo=2 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10556,9 +10556,9 @@ void tms57002::ex_781(const icd *i) // sub cmode=1 sfmo=2 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10568,9 +10568,9 @@ void tms57002::ex_782(const icd *i) // sub cmode=0 sfmo=3 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10580,9 +10580,9 @@ void tms57002::ex_783(const icd *i) // sub cmode=1 sfmo=3 rnd=2 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10592,9 +10592,9 @@ void tms57002::ex_784(const icd *i) // sub cmode=0 sfmo=0 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10604,9 +10604,9 @@ void tms57002::ex_785(const icd *i) // sub cmode=1 sfmo=0 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10616,9 +10616,9 @@ void tms57002::ex_786(const icd *i) // sub cmode=0 sfmo=1 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10628,9 +10628,9 @@ void tms57002::ex_787(const icd *i) // sub cmode=1 sfmo=1 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10640,9 +10640,9 @@ void tms57002::ex_788(const icd *i) // sub cmode=0 sfmo=2 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10652,9 +10652,9 @@ void tms57002::ex_789(const icd *i) // sub cmode=1 sfmo=2 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10664,9 +10664,9 @@ void tms57002::ex_790(const icd *i) // sub cmode=0 sfmo=3 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10676,9 +10676,9 @@ void tms57002::ex_791(const icd *i) // sub cmode=1 sfmo=3 rnd=3 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10688,9 +10688,9 @@ void tms57002::ex_792(const icd *i) // sub cmode=0 sfmo=0 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10700,9 +10700,9 @@ void tms57002::ex_793(const icd *i) // sub cmode=1 sfmo=0 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10712,9 +10712,9 @@ void tms57002::ex_794(const icd *i) // sub cmode=0 sfmo=1 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10724,9 +10724,9 @@ void tms57002::ex_795(const icd *i) // sub cmode=1 sfmo=1 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10736,9 +10736,9 @@ void tms57002::ex_796(const icd *i) // sub cmode=0 sfmo=2 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10748,9 +10748,9 @@ void tms57002::ex_797(const icd *i) // sub cmode=1 sfmo=2 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10760,9 +10760,9 @@ void tms57002::ex_798(const icd *i) // sub cmode=0 sfmo=3 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10772,9 +10772,9 @@ void tms57002::ex_799(const icd *i) // sub cmode=1 sfmo=3 rnd=4 movm=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10784,9 +10784,9 @@ void tms57002::ex_800(const icd *i) // sub cmode=0 sfmo=0 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10796,9 +10796,9 @@ void tms57002::ex_801(const icd *i) // sub cmode=1 sfmo=0 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10808,9 +10808,9 @@ void tms57002::ex_802(const icd *i) // sub cmode=0 sfmo=1 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10820,9 +10820,9 @@ void tms57002::ex_803(const icd *i) // sub cmode=1 sfmo=1 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10832,9 +10832,9 @@ void tms57002::ex_804(const icd *i) // sub cmode=0 sfmo=2 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10844,9 +10844,9 @@ void tms57002::ex_805(const icd *i) // sub cmode=1 sfmo=2 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10856,9 +10856,9 @@ void tms57002::ex_806(const icd *i) // sub cmode=0 sfmo=3 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10868,9 +10868,9 @@ void tms57002::ex_807(const icd *i) // sub cmode=1 sfmo=3 rnd=0 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3s(0x0000000000000000ULL, 0xffffffffffffffffULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10880,9 +10880,9 @@ void tms57002::ex_808(const icd *i) // sub cmode=0 sfmo=0 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10892,9 +10892,9 @@ void tms57002::ex_809(const icd *i) // sub cmode=1 sfmo=0 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10904,9 +10904,9 @@ void tms57002::ex_810(const icd *i) // sub cmode=0 sfmo=1 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10916,9 +10916,9 @@ void tms57002::ex_811(const icd *i) // sub cmode=1 sfmo=1 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10928,9 +10928,9 @@ void tms57002::ex_812(const icd *i) // sub cmode=0 sfmo=2 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10940,9 +10940,9 @@ void tms57002::ex_813(const icd *i) // sub cmode=1 sfmo=2 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10952,9 +10952,9 @@ void tms57002::ex_814(const icd *i) // sub cmode=0 sfmo=3 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10964,9 +10964,9 @@ void tms57002::ex_815(const icd *i) // sub cmode=1 sfmo=3 rnd=1 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3s(0x0000000000008000ULL, 0xffffffffffff0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10976,9 +10976,9 @@ void tms57002::ex_816(const icd *i) // sub cmode=0 sfmo=0 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -10988,9 +10988,9 @@ void tms57002::ex_817(const icd *i) // sub cmode=1 sfmo=0 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11000,9 +11000,9 @@ void tms57002::ex_818(const icd *i) // sub cmode=0 sfmo=1 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11012,9 +11012,9 @@ void tms57002::ex_819(const icd *i) // sub cmode=1 sfmo=1 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11024,9 +11024,9 @@ void tms57002::ex_820(const icd *i) // sub cmode=0 sfmo=2 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11036,9 +11036,9 @@ void tms57002::ex_821(const icd *i) // sub cmode=1 sfmo=2 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11048,9 +11048,9 @@ void tms57002::ex_822(const icd *i) // sub cmode=0 sfmo=3 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11060,9 +11060,9 @@ void tms57002::ex_823(const icd *i) // sub cmode=1 sfmo=3 rnd=2 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3s(0x0000000000800000ULL, 0xffffffffff000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11072,9 +11072,9 @@ void tms57002::ex_824(const icd *i) // sub cmode=0 sfmo=0 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11084,9 +11084,9 @@ void tms57002::ex_825(const icd *i) // sub cmode=1 sfmo=0 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11096,9 +11096,9 @@ void tms57002::ex_826(const icd *i) // sub cmode=0 sfmo=1 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11108,9 +11108,9 @@ void tms57002::ex_827(const icd *i) // sub cmode=1 sfmo=1 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11120,9 +11120,9 @@ void tms57002::ex_828(const icd *i) // sub cmode=0 sfmo=2 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11132,9 +11132,9 @@ void tms57002::ex_829(const icd *i) // sub cmode=1 sfmo=2 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11144,9 +11144,9 @@ void tms57002::ex_830(const icd *i) // sub cmode=0 sfmo=3 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11156,9 +11156,9 @@ void tms57002::ex_831(const icd *i) // sub cmode=1 sfmo=3 rnd=3 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3s(0x0000000000020000ULL, 0xfffffffffffc0000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11168,9 +11168,9 @@ void tms57002::ex_832(const icd *i) // sub cmode=0 sfmo=0 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11180,9 +11180,9 @@ void tms57002::ex_833(const icd *i) // sub cmode=1 sfmo=0 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_0s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11192,9 +11192,9 @@ void tms57002::ex_834(const icd *i) // sub cmode=0 sfmo=1 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11204,9 +11204,9 @@ void tms57002::ex_835(const icd *i) // sub cmode=1 sfmo=1 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_1s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11216,9 +11216,9 @@ void tms57002::ex_836(const icd *i) // sub cmode=0 sfmo=2 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11228,9 +11228,9 @@ void tms57002::ex_837(const icd *i) // sub cmode=1 sfmo=2 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_2s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11240,9 +11240,9 @@ void tms57002::ex_838(const icd *i) // sub cmode=0 sfmo=3 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(i->param) - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11252,9 +11252,9 @@ void tms57002::ex_839(const icd *i) // sub cmode=1 sfmo=3 rnd=4 movm=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)get_cmem(ca) - (macc_to_output_3s(0x0000000080000000ULL, 0xffffffff00000000ULL) >> 16);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11264,9 +11264,9 @@ void tms57002::ex_840(const icd *i) // sub cmode=0 dmode=0 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) - (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11276,9 +11276,9 @@ void tms57002::ex_841(const icd *i) // sub cmode=1 dmode=0 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(i->param + ba0) & 0xff] << 8) - (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11288,9 +11288,9 @@ void tms57002::ex_842(const icd *i) // sub cmode=0 dmode=1 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) - (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11300,9 +11300,9 @@ void tms57002::ex_843(const icd *i) // sub cmode=1 dmode=1 dbp=0
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem0[(id + ba0) & 0xff] << 8) - (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11312,9 +11312,9 @@ void tms57002::ex_844(const icd *i) // sub cmode=0 dmode=0 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) - (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11324,9 +11324,9 @@ void tms57002::ex_845(const icd *i) // sub cmode=1 dmode=0 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(i->param + ba1) & 0x1f] << 8) - (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11336,9 +11336,9 @@ void tms57002::ex_846(const icd *i) // sub cmode=0 dmode=1 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) - (int64_t)(int32_t)get_cmem(i->param);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
@@ -11348,9 +11348,9 @@ void tms57002::ex_847(const icd *i) // sub cmode=1 dmode=1 dbp=1
 	uint32_t d; (void)d;
 	int64_t r; (void)r;
 	r = (int64_t)(int32_t)(dmem1[(id + ba1) & 0x1f] << 8) - (int64_t)(int32_t)get_cmem(ca);
-  if(r < -2147483648 || r > 2147483647) {
+  if(r < -2147483647 - 1 || r > 2147483647) {
     st1 |= ST1_AOV;
-    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483648), std::min(int64_t(2147483647), r));
+    if(st1 & ST1_AOVM) r = std::max(int64_t(-2147483647 - 1), std::min(int64_t(2147483647), r));
   }  aacc = r;
 }
 
